@@ -10,9 +10,15 @@ public class Utils : MonoBehaviour
         return camera.ScreenToWorldPoint(position);
     }
 
-    public static GameObject GetGameManager()
+    public static Vector3 ScreenToWorld(Vector3 position)
+    {
+        position.z = Camera.main.nearClipPlane;
+        return Camera.main.ScreenToWorldPoint(position);
+    }
+
+    /*public static GameObject GetGameManager()
     {
         //return GameObject.Find("GameManager");
         return GameObject.FindGameObjectWithTag("GameController");
-    }
+    }*/
 }
