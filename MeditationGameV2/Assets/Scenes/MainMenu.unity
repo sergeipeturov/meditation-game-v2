@@ -1838,6 +1838,7 @@ GameObject:
   - component: {fileID: 1241504015}
   - component: {fileID: 1241504013}
   - component: {fileID: 1241504016}
+  - component: {fileID: 1241504017}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1966,6 +1967,20 @@ MonoBehaviour:
   Boredom: {fileID: 21300000, guid: cf38e8cc700341e4a9b208cf67e4a59f, type: 3}
   Sorrow: {fileID: 21300000, guid: 3770e4847dfafa04ba9fdaedea03f628, type: 3}
   Default: {fileID: 21300000, guid: b9f1547ef80bb5e4d9cb019b8bb28f27, type: 3}
+--- !u!114 &1241504017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241504009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa97fb7e8217484c8363c1dfcd871ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IdeaPrefab: {fileID: 4356751214500791739, guid: e56d18b332cd73a4fabfe62163c23adf,
+    type: 3}
 --- !u!1 &1264986675
 GameObject:
   m_ObjectHideFlags: 0

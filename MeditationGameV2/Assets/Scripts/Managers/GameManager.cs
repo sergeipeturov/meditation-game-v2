@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public UIManager UIManager { get { return GetComponent<UIManager>(); } }
     public MainMenuManager MainMenuManager { get { return GetComponent<MainMenuManager>(); } }
     public SpritesManager SpritesManager { get { return GetComponent<SpritesManager>(); } }
+    public Instantiator Instantiator { get { return GetComponent<Instantiator>(); } }
     public int CurrentLevel { get; private set; }
     public static GameManager Instance { get { return GameObject.Find("GameManager").GetComponent<GameManager>(); } }
 
