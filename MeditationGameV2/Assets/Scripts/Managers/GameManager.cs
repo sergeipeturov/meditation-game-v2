@@ -12,19 +12,20 @@ public class GameManager : MonoBehaviour
     public StateMachine StateMachine { get { return GetComponent<StateMachine>(); } }
     public UIManager UIManager { get { return GetComponent<UIManager>(); } }
     public MainMenuManager MainMenuManager { get { return GetComponent<MainMenuManager>(); } }
+    public SpritesManager SpritesManager { get { return GetComponent<SpritesManager>(); } }
     public int CurrentLevel { get; private set; }
     public static GameManager Instance { get { return GameObject.Find("GameManager").GetComponent<GameManager>(); } }
 
-    private Scene _CurrentScene; //все, что связано с этими переменными - ебучие костыли, но пока не хочу с этим разбираться, для такой простой игры хватит и костылей
-    private Scene CurrentScene 
-    {
-        get { return _CurrentScene; } 
-        set
-        {
-            _CurrentScene = value;
-            SceneManager_sceneLoaded();
-        }
-    }
+    //private Scene _CurrentScene; //все, что связано с этими переменными - ебучие костыли, но пока не хочу с этим разбираться, для такой простой игры хватит и костылей
+    //private Scene CurrentScene 
+    //{
+    //    get { return _CurrentScene; } 
+    //    set
+    //    {
+    //        _CurrentScene = value;
+    //        SceneManager_sceneLoaded();
+    //    }
+    //}
 
     private void Awake()
     {
@@ -36,8 +37,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (StateMachine.GameState == GameState.gameNormal && (CurrentScene == null || CurrentScene.name != "NormalGame"))
-            CurrentScene = SceneManager.GetActiveScene();
+        //if (StateMachine.GameState == GameState.gameNormal && (CurrentScene == null || CurrentScene.name != "NormalGame"))
+        //    CurrentScene = SceneManager.GetActiveScene();
     }
 
     public void SetUpLevel()
@@ -50,21 +51,21 @@ public class GameManager : MonoBehaviour
 
     private void SceneManager_sceneLoaded()
     {
-        if (StateMachine.GameState == GameState.gameNormal && CurrentScene.name == "NormalGame")
-        {
-            Background.GetComponent<BackgroundManager>().GoBlackBack();
-            UIManager.ShowIntro(CurrentLevel);
-            UIManager.IntroPanel.transform.Find("Button").GetComponent<LevelIntroButton>().GoLevelNotify += GoLevel;
-        }
+        //if (StateMachine.GameState == GameState.gameNormal && CurrentScene.name == "NormalGame")
+        //{
+        //    Background.GetComponent<BackgroundManager>().GoBlackBack();
+        //   UIManager.ShowIntro(CurrentLevel);
+        //    UIManager.IntroPanel.transform.Find("Button").GetComponent<LevelIntroButton>().GoLevelNotify += GoLevel;
+        //}
     }
 
     private void GoLevel()
     {
-        Background.GetComponent<BackgroundManager>().GoUsualBack();
-        UIManager.DisableIntro();
+        //Background.GetComponent<BackgroundManager>().GoUsualBack();
+        //UIManager.DisableIntro();
 
-        Circle.SetActive(true);
-        CircleScript.BlockMove(false);
-        CircleScript.EnableOreol();
+        //Circle.SetActive(true);
+        //CircleScript.BlockMove(false);
+        //CircleScript.EnableOreol();
     }
 }

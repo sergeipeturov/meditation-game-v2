@@ -1837,6 +1837,7 @@ GameObject:
   - component: {fileID: 1241504012}
   - component: {fileID: 1241504015}
   - component: {fileID: 1241504013}
+  - component: {fileID: 1241504016}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1932,6 +1933,39 @@ MonoBehaviour:
   - {fileID: 1473911256}
   LevelSelectingPanel: {fileID: 1434711257}
   LevelDescriptionText: {fileID: 2052550341}
+--- !u!114 &1241504016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241504009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0aee448366e58c438942a49be85ee1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Joy: {fileID: 21300000, guid: 3a6538c8e79cb6041a9265fa704e38f6, type: 3}
+  Concentration: {fileID: 21300000, guid: 4babf6a20745dfb47b12653a2a5a04bb, type: 3}
+  Optimism: {fileID: 21300000, guid: 6f5fb3d2589683a4e9f42b4790c28c64, type: 3}
+  Inspiration: {fileID: 21300000, guid: 54b82898c5a730746951ebfaa4f91bea, type: 3}
+  Hope: {fileID: 21300000, guid: 9ea1b3935635fac44938620495a3dd7c, type: 3}
+  Satisfaction: {fileID: 21300000, guid: 115ee57f2ce588143a7d8b4f539507d6, type: 3}
+  Calmness: {fileID: 21300000, guid: d8ad956ea7e461641bee5fbb80e013d9, type: 3}
+  Serenity: {fileID: 21300000, guid: ed7eaa88d1239e748a52634a5dfa765d, type: 3}
+  Love: {fileID: 21300000, guid: 6b42d9a087ed11f46b677037be1b863a, type: 3}
+  Enthusiasm: {fileID: 21300000, guid: 5cede6748c90ae74cbe8c101c1b00136, type: 3}
+  Hate: {fileID: 21300000, guid: ca67bbd3fff91ec4d8237ccdf4a4f33b, type: 3}
+  Uncertainty: {fileID: 21300000, guid: ba6d033071688404ea120b8e6b8a3b79, type: 3}
+  Worry: {fileID: 21300000, guid: dd14afe3c32d12e4da6a6c8c66a34855, type: 3}
+  Pessimism: {fileID: 21300000, guid: d99645f75d1c2854e9105a772f5bbfba, type: 3}
+  Irritation: {fileID: 21300000, guid: 4d7f0a9888e85444784bc27f4651c21f, type: 3}
+  Guilt: {fileID: 21300000, guid: 242f3e7d764d9634d8df512ab20cece9, type: 3}
+  Resentment: {fileID: 21300000, guid: 19232058578b43b4390808b45a924103, type: 3}
+  Jealousy: {fileID: 21300000, guid: 6ae8c12dd77016f4ca59b64ee4a43831, type: 3}
+  Boredom: {fileID: 21300000, guid: cf38e8cc700341e4a9b208cf67e4a59f, type: 3}
+  Sorrow: {fileID: 21300000, guid: 3770e4847dfafa04ba9fdaedea03f628, type: 3}
+  Default: {fileID: 21300000, guid: b9f1547ef80bb5e4d9cb019b8bb28f27, type: 3}
 --- !u!1 &1264986675
 GameObject:
   m_ObjectHideFlags: 0

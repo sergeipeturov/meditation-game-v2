@@ -18,3 +18,10 @@ public enum GameState
     gameNormal, //начинается обычная игра (но еще до дого, как игрок впервые коснулся круга)
     gameNormalPlaying //играется обычная игра (после того, как игрок коснулся круга и у того исчезл ореол)
 }
+
+public enum NormalGameState
+{
+    intro,
+    choiseOfThoughts,
+    prePlay
+}
