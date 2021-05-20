@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
     public GameObject[] MainMenuButtons;
     public GameObject[] MainMenuTexts;
+
+    public GameObject LevelSelectingPanel;
+    public TextMeshProUGUI LevelDescriptionText;
 
     public MainMenuButtonScript SelectedButton { get; private set; }
 
@@ -18,11 +22,12 @@ public class MainMenuManager : MonoBehaviour
             if (curWaitTime >= maxWaitTime)
             {
                 curWaitTime += Time.deltaTime;
-                OpenSubmenu(SelectedButton.Index);
-                if (curWaitTime >= maxWaitTime + 1.0f)
+                FadeOutAll();
+                if (curWaitTime >= maxWaitTime + 2.0f)
                 {
                     curWaitTime = 0.0f;
                     GameManager.Instance.Circle.SetActive(false);
+                    OpenSubmenu(SelectedButton.Index);
                 }
             }
         }
@@ -68,7 +73,39 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-    private void OpenSubmenu(int submenuIndex)
+    public void SelectLevel(int level)
+    {
+        selectedLevel = level;
+        switch (level)
+        {
+            case 1:
+                LevelDescriptionText.text = "Этап 1. Амбиции.";
+                break;
+            case 2:
+                LevelDescriptionText.text = "Этап 2. Беспокойства.";
+                break;
+            case 3:
+                LevelDescriptionText.text = "Этап 3. Желания.";
+                break;
+            case 4:
+                LevelDescriptionText.text = "Этап 4. Страхи.";
+                break;
+            case 5:
+                LevelDescriptionText.text = "Этап 5. Уныние.";
+                break;
+            case 6:
+                LevelDescriptionText.text = "Этап 6. Стресс.";
+                break;
+            case 7:
+                LevelDescriptionText.text = "Этап 7. Сожаления.";
+                break;
+            case 8:
+                LevelDescriptionText.text = "Этап 8. Самолюбие.";
+                break;
+        }
+    }
+
+    private void FadeOutAll()
     {
         SelectedButton.GetComponent<Animator>().SetTrigger("fadeOut");
         foreach (var item in MainMenuTexts)
@@ -80,7 +117,20 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    private void OpenSubmenu(int submenuIndex)
+    {
+        switch (submenuIndex)
+        {
+            case 0:
+                LevelSelectingPanel.SetActive(true);
+                break;
+            case 1:
+                break;
+        }
+    }
+
     private float maxWaitTime = 1.0f;
     private float curWaitTime = 0.0f;
     private bool isWaitForSubmenu = false;
+    private int selectedLevel;
 }
