@@ -12,22 +12,27 @@ public class MainMenuManager : MonoBehaviour
     public TextMeshProUGUI LevelDescriptionText;
 
     public MainMenuButtonScript SelectedButton { get; private set; }
+    public int SelectedLevel { get; private set; }
 
     private void Update()
     {
-        if (isWaitForSubmenu)
+        if (GameManager.Instance.StateMachine.GameState == GameState.mainMenu)
         {
-            GameManager.Instance.CircleScript.BlockMove(true);
-            curWaitTime += Time.deltaTime;
-            if (curWaitTime >= maxWaitTime)
+            if (isWaitForSubmenu)
             {
+                GameManager.Instance.CircleScript.BlockMove(true);
                 curWaitTime += Time.deltaTime;
-                FadeOutAll();
-                if (curWaitTime >= maxWaitTime + 2.0f)
+                if (curWaitTime >= maxWaitTime)
                 {
-                    curWaitTime = 0.0f;
-                    GameManager.Instance.Circle.SetActive(false);
-                    OpenSubmenu(SelectedButton.Index);
+                    curWaitTime += Time.deltaTime;
+                    FadeOutAll();
+                    if (curWaitTime >= maxWaitTime + 2.0f)
+                    {
+                        curWaitTime = 0.0f;
+                        GameManager.Instance.Circle.SetActive(false);
+                        OpenSubmenu(SelectedButton.Index);
+                        isWaitForSubmenu = false;
+                    }
                 }
             }
         }
@@ -75,7 +80,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void SelectLevel(int level)
     {
-        selectedLevel = level;
+        SelectedLevel = level;
         switch (level)
         {
             case 1:
@@ -132,5 +137,4 @@ public class MainMenuManager : MonoBehaviour
     private float maxWaitTime = 1.0f;
     private float curWaitTime = 0.0f;
     private bool isWaitForSubmenu = false;
-    private int selectedLevel;
 }

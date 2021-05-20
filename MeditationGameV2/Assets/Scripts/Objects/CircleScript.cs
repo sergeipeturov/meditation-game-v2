@@ -33,6 +33,11 @@ public class CircleScript : MonoBehaviour
             {
                 GameManager.Instance.MainMenuManager.MainMenuFadeIn();
             }
+
+            if (GameManager.Instance.StateMachine.GameState == GameState.gameNormal)
+            {
+                GameManager.Instance.StateMachine.GameState = GameState.gameNormalPlaying;
+            }
         }
     }
 
@@ -60,7 +65,7 @@ public class CircleScript : MonoBehaviour
         }
     }
 
-    private void EnableOreol()
+    public void EnableOreol()
     {
         OreolGameObject.SetActive(true);
     }

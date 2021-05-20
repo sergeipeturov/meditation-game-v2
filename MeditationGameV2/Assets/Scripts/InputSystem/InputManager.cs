@@ -9,8 +9,8 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         touchControls = new TouchControls();
-        mainCamera = Camera.main;
-    }
+        //mainCamera = Camera.main;
+    }   
 
     private void OnEnable()
     {
@@ -32,7 +32,8 @@ public class InputManager : MonoBehaviour
     {
         if (isOnTouch)
         {
-            Vector3 touchPosition = Utils.ScreenToWorld(mainCamera, touchControls.Touch.TouchPosition.ReadValue<Vector2>());
+            //Vector3 touchPosition = Utils.ScreenToWorld(mainCamera, touchControls.Touch.TouchPosition.ReadValue<Vector2>());
+            Vector3 touchPosition = Utils.ScreenToWorld(touchControls.Touch.TouchPosition.ReadValue<Vector2>());
             //Debug.Log("position: " + touchPosition);
             if (circleScript != null)
             {
@@ -43,7 +44,8 @@ public class InputManager : MonoBehaviour
 
     private void StartTouch(InputAction.CallbackContext context)
     {
-        Vector3 touchPosition = Utils.ScreenToWorld(mainCamera, touchControls.Touch.TouchPosition.ReadValue<Vector2>());
+        //Vector3 touchPosition = Utils.ScreenToWorld(mainCamera, touchControls.Touch.TouchPosition.ReadValue<Vector2>());
+        Vector3 touchPosition = Utils.ScreenToWorld(touchControls.Touch.TouchPosition.ReadValue<Vector2>());
         //Debug.Log("Touch STARTED " + touchPosition);
         isOnTouch = true;
 
@@ -72,7 +74,7 @@ public class InputManager : MonoBehaviour
     }
 
     private TouchControls touchControls;
-    private Camera mainCamera;
+    //private Camera mainCamera;
     private bool isOnTouch = false;
     private CircleScript circleScript; //это конечно неправильно, надо через события делать, но для такого простого приложения можно и так, думаю
 }

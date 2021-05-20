@@ -14,5 +14,7 @@ public class StateMachine : MonoBehaviour
 
 public enum GameState
 {
-    mainMenu
+    mainMenu, //показывается главное меню
+    gameNormal, //начинается обычная игра (но еще до дого, как игрок впервые коснулся круга)
+    gameNormalPlaying //играется обычная игра (после того, как игрок коснулся круга и у того исчезл ореол)
 }

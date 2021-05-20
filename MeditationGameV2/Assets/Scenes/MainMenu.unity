@@ -1907,6 +1907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Circle: {fileID: 1175928630}
+  Background: {fileID: 5745663820017662702}
 --- !u!114 &1241504015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2806,7 +2807,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1830255192}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1241504014}
+        m_MethodName: SetUpLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1830255192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3421,6 +3433,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb90227e4e1bbdf429e94a30926bb56d, type: 3}
+--- !u!1 &5745663820017662702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5745663819882916319, guid: eb90227e4e1bbdf429e94a30926bb56d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5745663820017662701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5745663820017662703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5745663820017662702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62ebfbffcd760a4787db7cbd288a0a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9062140477774413971
 PrefabInstance:
   m_ObjectHideFlags: 0
