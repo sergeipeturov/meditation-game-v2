@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public delegate void ThoughtAdded(Thought thought);
+    public event ThoughtAdded ThoughtAddedNotify;
+    public delegate void ThoughtRemoved(Thought thought);
+    public event ThoughtRemoved ThoughtRemovedNotify;
+
     public List<Thought> PosistiveThoughts { get; private set; } = new List<Thought>();
     public List<Thought> NegativeThoughts { get; private set; } = new List<Thought>();
 
@@ -25,7 +30,8 @@ public class PlayerManager : MonoBehaviour
             }
             foreach (var item in toRemove)
             {
-                PosistiveThoughts.Remove(item);
+                //PosistiveThoughts.Remove(item);
+                RemoveThought(item);
             }
             toRemove.Clear();
             NormalGameManager.Instance.EffectorUIManager.UpdatePositiveUIs(PosistiveThoughts);
@@ -42,7 +48,8 @@ public class PlayerManager : MonoBehaviour
             }
             foreach (var item in toRemove)
             {
-                NegativeThoughts.Remove(item);
+                //NegativeThoughts.Remove(item);
+                RemoveThought(item);
             }
             toRemove.Clear();
             NormalGameManager.Instance.EffectorUIManager.UpdateNegativeUIs(NegativeThoughts);
@@ -68,6 +75,7 @@ public class PlayerManager : MonoBehaviour
             else
                 NegativeThoughts.Add(thought);
         }
+        ThoughtAddedNotify?.Invoke(thought);
     }
 
     private void RemoveThought(Thought thought)
@@ -76,6 +84,8 @@ public class PlayerManager : MonoBehaviour
             PosistiveThoughts.Remove(thought);
         else
             NegativeThoughts.Remove(thought);
+
+        ThoughtRemovedNotify?.Invoke(thought);
     }
 
     private List<Thought> toRemove = new List<Thought>();
