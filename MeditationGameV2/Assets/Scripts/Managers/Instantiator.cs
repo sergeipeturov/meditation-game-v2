@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,10 +39,26 @@ public class Instantiator : MonoBehaviour
                 initedObj.GetComponent<IdeaScript>().SetRandomThought(spawnMode);
 
                 //speed of falling 
-                initedObj.GetComponent<Rigidbody2D>().AddForce(Vector2.down * GameManager.Instance.LevelsManager.CurrentLevel.IdeasFallingSpeed);
+                float speed = GameManager.Instance.LevelsManager.CurrentLevel.IdeasFallingSpeed;
+                if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_1_Hate))
+                {
+                    Debug.Log("HATE");
+                    speed += Constants.BonusToSpeedFromHate;
+                }
+                
+                initedObj.GetComponent<Rigidbody2D>().AddForce(Vector2.down * speed);
 
                 //new delay
-                delay = Random.Range(GameManager.Instance.LevelsManager.CurrentLevel.MinTimeBetweenIdeas, GameManager.Instance.LevelsManager.CurrentLevel.MaxTimeBetweenIdeas);
+                float minDelay = GameManager.Instance.LevelsManager.CurrentLevel.MinTimeBetweenIdeas;
+                float maxDelay = GameManager.Instance.LevelsManager.CurrentLevel.MaxTimeBetweenIdeas;
+                if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_1_Hate))
+                {
+                    minDelay += Constants.BonusToTimeBetweenFromHate;
+                    if (minDelay < 0) minDelay = 0;
+                    maxDelay += Constants.BonusToTimeBetweenFromHate;
+                    if (maxDelay < 0) maxDelay = 0;
+                }
+                delay = Random.Range(minDelay, maxDelay);
             }
         }
     }

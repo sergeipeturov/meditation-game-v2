@@ -11,7 +11,7 @@ public class LevelsManager : MonoBehaviour
         {
             Number = 1,
             TimeToReach = 25.0f,
-            ThoughtsTimeOfLife = 25.0f,
+            ThoughtsTimeOfLife = 10.0f,
             IdeasFallingSpeed = 1.0f,
             MinTimeBetweenIdeas = 0.5f,
             MaxTimeBetweenIdeas = 1.5f
@@ -20,8 +20,8 @@ public class LevelsManager : MonoBehaviour
         {
             Number = 2,
             TimeToReach = 27.0f,
-            ThoughtsTimeOfLife = 25.0f,
-            IdeasFallingSpeed = 5.0f,
+            ThoughtsTimeOfLife = 10.0f,
+            IdeasFallingSpeed = 100.0f,
             MinTimeBetweenIdeas = 0.3f,
             MaxTimeBetweenIdeas = 1.5f
         },
@@ -29,8 +29,8 @@ public class LevelsManager : MonoBehaviour
         {
             Number = 3,
             TimeToReach = 30.0f,
-            ThoughtsTimeOfLife = 30.0f,
-            IdeasFallingSpeed = 5.0f,
+            ThoughtsTimeOfLife = 15.0f,
+            IdeasFallingSpeed = 200.0f,
             MinTimeBetweenIdeas = 0.0f,
             MaxTimeBetweenIdeas = 1.5f
         },
@@ -38,8 +38,8 @@ public class LevelsManager : MonoBehaviour
         {
             Number = 4,
             TimeToReach = 33.0f,
-            ThoughtsTimeOfLife = 30.0f,
-            IdeasFallingSpeed = 5.0f,
+            ThoughtsTimeOfLife = 15.0f,
+            IdeasFallingSpeed = 300.0f,
             MinTimeBetweenIdeas = 0.0f,
             MaxTimeBetweenIdeas = 1.0f
         },
@@ -47,8 +47,8 @@ public class LevelsManager : MonoBehaviour
         {
             Number = 5,
             TimeToReach = 35.0f,
-            ThoughtsTimeOfLife = 35.0f,
-            IdeasFallingSpeed = 10.0f,
+            ThoughtsTimeOfLife = 20.0f,
+            IdeasFallingSpeed = 500.0f,
             MinTimeBetweenIdeas = 0.0f,
             MaxTimeBetweenIdeas = 1.0f
         },
@@ -56,8 +56,8 @@ public class LevelsManager : MonoBehaviour
         {
             Number = 6,
             TimeToReach = 37.0f,
-            ThoughtsTimeOfLife = 35.0f,
-            IdeasFallingSpeed = 10.0f,
+            ThoughtsTimeOfLife = 20.0f,
+            IdeasFallingSpeed = 600.0f,
             MinTimeBetweenIdeas = 0.0f,
             MaxTimeBetweenIdeas = 1.0f
         },
@@ -65,17 +65,17 @@ public class LevelsManager : MonoBehaviour
         {
             Number = 7,
             TimeToReach = 40.0f,
-            ThoughtsTimeOfLife = 40.0f,
-            IdeasFallingSpeed = 10.0f,
+            ThoughtsTimeOfLife = 25.0f,
+            IdeasFallingSpeed = 800.0f,
             MinTimeBetweenIdeas = 0.0f,
             MaxTimeBetweenIdeas = 1.0f
         },
         new Level()
         {
             Number = 8,
-            TimeToReach = 40.0f,
+            TimeToReach = 25.0f,
             ThoughtsTimeOfLife = 40.0f,
-            IdeasFallingSpeed = 25.0f,
+            IdeasFallingSpeed = 900.0f,
             MinTimeBetweenIdeas = 0.0f,
             MaxTimeBetweenIdeas = 1.0f
         }

@@ -75,19 +75,20 @@ public class NormalGameManager : MonoBehaviour
         thoughtChoises.Clear();
         switch (GameManager.Instance.CurrentLevel)
         {
-            case 1: //две думы - положительная и отрицательная
+            case 1: //две думы - положительная и отрицательная //test: на время теста - одна
                 Thought thought = new Thought(true);
-                while (thought.IsMomental)
-                {
-                    thought = Thought.GetRandomPositiveThought();
-                }
+                //while (thought.IsMomental) //test раскомментить
+                //{
+                //    thought = Thought.GetRandomPositiveThought();
+                //}
+                thought = Thought.GetThoughtByName(Names.Negative_1_Hate); //test
                 thoughtChoises.Add(new ThoughtChoise(thought));
-                thought = new Thought(true);
+                /*thought = new Thought(true); //test раскомментить
                 while (thought.IsMomental)
                 {
                     thought = Thought.GetRandomNegativeThought();
                 }
-                thoughtChoises.Add(new ThoughtChoise(thought));
+                thoughtChoises.Add(new ThoughtChoise(thought));*/
                 break;
             case 2:
                 break;
@@ -114,12 +115,12 @@ public class NormalGameManager : MonoBehaviour
         switch (GameManager.Instance.CurrentLevel)
         {
             case 1: //две думы - положительная и отрицательная
-                for (int i = 3; i <= 8; i++)
+                for (int i = 2; i <= 8; i++) //test. must be 3
                 {
                     GameManager.Instance.UIManager.ChoiseOfThoughtsPanel.transform.Find("ThoughtChoisesPanel").Find($"TC_{i}").gameObject.SetActive(false);
                 }
                 thoughtChoises[0].ThoughtChoiseViewName = "TC_1";
-                thoughtChoises[1].ThoughtChoiseViewName = "TC_2";
+                //thoughtChoises[1].ThoughtChoiseViewName = "TC_2"; //test раскомментить
                 break;
             case 2:
                 break;

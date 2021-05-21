@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -165,6 +166,15 @@ public class Thought
         var negatives = GetNegativeThoughts();
         int what = Random.Range(0, 10);
         return negatives[what];
+    }
+
+    public static Thought GetThoughtByName(string name)
+    {
+        var positives = GetPositiveThoughts();
+        var negatives = GetNegativeThoughts();
+        var res = positives.FirstOrDefault(x => x.Name == name);
+        if (res == null) res = negatives.FirstOrDefault(x => x.Name == name);
+        return res;
     }
 }
 
