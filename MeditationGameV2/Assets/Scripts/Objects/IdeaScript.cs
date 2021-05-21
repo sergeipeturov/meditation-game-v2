@@ -61,7 +61,13 @@ public class IdeaScript : MonoBehaviour
         }
 
         //irritation realization
-
+        if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_5_Irritation))
+        {
+            if (Randomizer.GetResultByChanse(Constants.ChanceOfIrritationEffect))
+            {
+                GetComponent<Rigidbody2D>().AddForce(Directions.GetRandomLeftRightDirection() * 30);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
