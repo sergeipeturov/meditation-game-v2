@@ -37,6 +37,7 @@ public class CircleScript : MonoBehaviour
             if (GameManager.Instance.StateMachine.GameState == GameState.gameNormal)
             {
                 GameManager.Instance.StateMachine.GameState = GameState.gameNormalPlaying;
+                NormalGameManager.Instance.EffectorUIManager.EnablePanels();
             }
         }
     }

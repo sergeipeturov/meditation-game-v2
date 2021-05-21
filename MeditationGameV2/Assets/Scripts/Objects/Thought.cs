@@ -8,7 +8,7 @@ public class Thought
 
     public float TimeOfLife { get; private set; }
 
-    public float CurrentTimeOfLife { get; private set; }
+    public float CurrentTimeOfLife { get; set; }
 
     public bool IsPositive { get; private set; }
 

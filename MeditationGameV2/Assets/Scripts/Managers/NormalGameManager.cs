@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class NormalGameManager : MonoBehaviour
 {
+    public static NormalGameManager Instance { get { return GameObject.Find("NormalGameManager").GetComponent<NormalGameManager>(); } }
+    public EffectorManager EffectorManager { get { return GetComponent<EffectorManager>(); } }
+    public EffectorUIManager EffectorUIManager { get { return GetComponent<EffectorUIManager>(); } }
+
     public NormalGameState NormalGameState
     {
         get { return normalGameState; }
@@ -25,6 +29,7 @@ public class NormalGameManager : MonoBehaviour
     {
         if (NormalGameState == NormalGameState.intro)
         {
+            EffectorUIManager.DisablePanels();
             GameManager.Instance.Background.GetComponent<BackgroundManager>().GoBlackBack();
             GameManager.Instance.UIManager.ShowIntro(GameManager.Instance.CurrentLevel);
             GameManager.Instance.UIManager.IntroPanel.transform.Find("Button").GetComponent<LevelIntroButton>().GoLevelNotify += GoToChoiseOfThoughts;
@@ -45,6 +50,11 @@ public class NormalGameManager : MonoBehaviour
             GameManager.Instance.Circle.SetActive(true);
             GameManager.Instance.CircleScript.BlockMove(false);
             GameManager.Instance.CircleScript.EnableOreol();
+
+            foreach (var item in thoughtChoises)
+            {
+                GameManager.Instance.PlayerManager.AddThought(item.Thought);
+            }
         }
     }
 

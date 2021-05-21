@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public SpritesManager SpritesManager { get { return GetComponent<SpritesManager>(); } }
     public Instantiator Instantiator { get { return GetComponent<Instantiator>(); } }
     public LevelsManager LevelsManager { get { return GetComponent<LevelsManager>(); } }
+    public PlayerManager PlayerManager { get { return GetComponent<PlayerManager>(); } }
     public int CurrentLevel { get; private set; }
     public static GameManager Instance { get { return GameObject.Find("GameManager").GetComponent<GameManager>(); } }
 
