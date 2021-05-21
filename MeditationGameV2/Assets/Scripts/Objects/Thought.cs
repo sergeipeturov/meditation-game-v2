@@ -17,9 +17,19 @@ public class Thought
 
     public Thought(bool isMomental = false)
     {
-        TimeOfLife = Constants.ThoughtsTimeOfLife;
+        TimeOfLife = 0.0f;
         CurrentTimeOfLife = 0.0f;
         IsMomental = isMomental;
+    }
+
+    public void SetTimeOfLife(float newTimeOfLife)
+    {
+        TimeOfLife = newTimeOfLife;
+    }
+
+    public void IncreaseTimeOfLife(float additionalTime)
+    {
+        TimeOfLife += additionalTime;
     }
 
     public static List<Thought> GetPositiveThoughts()
@@ -131,6 +141,7 @@ public class Thought
             new Thought()
             {
                 Name = Names.Negative_9_Boredom,
+                //TimeOfLife = 
                 IsPositive = false
             },
             new Thought()

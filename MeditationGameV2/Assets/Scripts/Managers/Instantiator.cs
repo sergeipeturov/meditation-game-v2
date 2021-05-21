@@ -39,6 +39,13 @@ public class Instantiator : MonoBehaviour
                     GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_3_Optimism) ? IdeaSpawnMode.onlyPositive : IdeaSpawnMode.all;
                 initedObj.GetComponent<IdeaScript>().SetRandomThought(spawnMode);
 
+                //time of life
+                initedObj.GetComponent<IdeaScript>().Thought.SetTimeOfLife(GameManager.Instance.LevelsManager.CurrentLevel.ThoughtsTimeOfLife);
+                if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_9_Boredom))
+                    initedObj.GetComponent<IdeaScript>().Thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromBoredom);
+                if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_4_Inspiration))
+                    initedObj.GetComponent<IdeaScript>().Thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromInspiration);
+
                 //speed of falling 
                 float speed = GameManager.Instance.LevelsManager.CurrentLevel.IdeasFallingSpeed;
                 if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_1_Hate))
@@ -46,7 +53,6 @@ public class Instantiator : MonoBehaviour
                     Debug.Log("HATE");
                     speed += Constants.BonusToSpeedFromHate;
                 }
-                
                 initedObj.GetComponent<Rigidbody2D>().AddForce(Vector2.down * speed);
 
                 //new delay

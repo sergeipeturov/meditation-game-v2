@@ -4,9 +4,10 @@ using UnityEngine;
 
 public static class Constants
 {
-    public const float ThoughtsTimeOfLife = 25.0f;
     public const float BonusToTimeBetweenFromHate = -0.5f;
     public const float BonusToSpeedFromHate = 500.0f;
+    public const float BonusToTimeOfLifeFromBoredom = 5.0f;
+    public const float BonusToTimeOfLifeFromInspiration = -5.0f;
 }
 
 public static class Names

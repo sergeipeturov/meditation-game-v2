@@ -80,13 +80,24 @@ public class NormalGameManager : MonoBehaviour
                 //while (thought.IsMomental) //test раскомментить
                 //{
                 //    thought = Thought.GetRandomPositiveThought();
+                //    thought.SetTimeOfLife(GameManager.Instance.LevelsManager.CurrentLevel.ThoughtsTimeOfLife);
+                //    if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_9_Boredom))
+                //      thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromBoredom);
+                //    if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_4_Inspiration))
+                //      thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromInspiration);
                 //}
-                thought = Thought.GetThoughtByName(Names.Positive_3_Optimism); //test
+                thought = Thought.GetThoughtByName(Names.Negative_9_Boredom); //test
+                thought.SetTimeOfLife(GameManager.Instance.LevelsManager.CurrentLevel.ThoughtsTimeOfLife);
                 thoughtChoises.Add(new ThoughtChoise(thought));
                 /*thought = new Thought(true); //test раскомментить
                 while (thought.IsMomental)
                 {
                     thought = Thought.GetRandomNegativeThought();
+                    thought.SetTimeOfLife(GameManager.Instance.LevelsManager.CurrentLevel.ThoughtsTimeOfLife);
+                    if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_9_Boredom))
+                      thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromBoredom);
+                    if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_4_Inspiration))
+                      thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromInspiration);
                 }
                 thoughtChoises.Add(new ThoughtChoise(thought));*/
                 break;
