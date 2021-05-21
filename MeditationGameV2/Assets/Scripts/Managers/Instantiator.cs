@@ -50,8 +50,13 @@ public class Instantiator : MonoBehaviour
                 float speed = GameManager.Instance.LevelsManager.CurrentLevel.IdeasFallingSpeed;
                 if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_1_Hate))
                 {
-                    Debug.Log("HATE");
                     speed += Constants.BonusToSpeedFromHate;
+                    if (speed <= 1.0) speed = 1.0f;
+                }
+                if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_1_Joy))
+                {
+                    speed += Constants.BonusToSpeedFromJoy;
+                    if (speed <= 1.0) speed = 1.0f;
                 }
                 initedObj.GetComponent<Rigidbody2D>().AddForce(Vector2.down * speed);
 
@@ -63,6 +68,13 @@ public class Instantiator : MonoBehaviour
                     minDelay += Constants.BonusToTimeBetweenFromHate;
                     if (minDelay < 0) minDelay = 0;
                     maxDelay += Constants.BonusToTimeBetweenFromHate;
+                    if (maxDelay < 0) maxDelay = 0;
+                }
+                if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_1_Joy))
+                {
+                    minDelay += Constants.BonusToTimeBetweenFromJoy;
+                    if (minDelay < 0) minDelay = 0;
+                    maxDelay += Constants.BonusToTimeBetweenFromJoy;
                     if (maxDelay < 0) maxDelay = 0;
                 }
                 delay = Random.Range(minDelay, maxDelay);
