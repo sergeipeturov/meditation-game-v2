@@ -11,6 +11,7 @@ public static class Constants
     public const float BonusToTimeOfLifeFromBoredom = 5.0f;
     public const float BonusToTimeOfLifeFromInspiration = -5.0f;
     public const int ChanceOfUncertaintyEffect = 3;
+    public const int ChanceOfWorryEffect = 1;
 }
 
 public static class Names

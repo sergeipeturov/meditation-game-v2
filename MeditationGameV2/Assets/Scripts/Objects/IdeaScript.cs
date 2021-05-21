@@ -36,6 +36,28 @@ public class IdeaScript : MonoBehaviour
                 GetComponent<SpriteRenderer>().sprite = GameManager.Instance.SpritesManager.GetSpriteByThoughtName(Thought.Name);
             }
         }
+
+        //worry realization
+        if (colliderOff)
+        {
+            curTimeWithoutCollider += Time.deltaTime;
+            if (curTimeWithoutCollider >= maxTimeWithoutCollider)
+            {
+                curTimeWithoutCollider = 0.0f;
+                colliderOff = false;
+            }
+        }
+        else
+        {
+            if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_3_Worry))
+            {
+                if (Randomizer.GetResultByChanse(Constants.ChanceOfWorryEffect))
+                {
+                    GetComponent<Collider2D>().enabled = false;
+                    colliderOff = true;
+                }
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,4 +78,7 @@ public class IdeaScript : MonoBehaviour
 
     private float speedOfFalling;
     private bool wasCollision = false;
+    private bool colliderOff = false;
+    private float curTimeWithoutCollider = 0.0f;
+    private float maxTimeWithoutCollider = 1.0f;
 }
