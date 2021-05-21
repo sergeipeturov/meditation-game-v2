@@ -1,22 +1,10 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class IdeaScript : MonoBehaviour
 {
-    public float SpeedOfFalling
-    {
-        get { return speedOfFalling; }
-        set
-        {
-            speedOfFalling = value;
-            if (value == 0)
-            {
-
-            }
-        }
-    }
-
     public Thought Thought { get; set; }
 
     public void SetRandomThought(IdeaSpawnMode ideaSpawnMode)
@@ -37,20 +25,16 @@ public class IdeaScript : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = GameManager.Instance.SpritesManager.GetSpriteByThoughtName(Thought.Name);
     }
 
-    public void SetSpeedOfFalling(float newSpeed)
-    {
-        SpeedOfFalling = newSpeed;
-    }
-
     private void Update()
     {
-        //if (!wasCollision)
-        //    transform.position += Vector3.down * 10 * Time.deltaTime;
-        if (SpeedOfFalling != 0)
+        //uncertainty realization
+        if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_2_Uncertainty))
         {
-            //GetComponent<Rigidbody2D>().AddForce(Vector3.down * SpeedOfFalling * Time.deltaTime);
-            //transform.position += Vector3.down * SpeedOfFalling * Time.deltaTime; //норм
-            //transform.position += Vector3.down * 10000000 * Time.deltaTime;
+            if (Randomizer.GetResultByChanse(Constants.ChanceOfUncertaintyEffect))
+            {
+                Thought = Thought.GetRandomThought();
+                GetComponent<SpriteRenderer>().sprite = GameManager.Instance.SpritesManager.GetSpriteByThoughtName(Thought.Name);
+            }
         }
     }
 
