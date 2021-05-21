@@ -81,7 +81,7 @@ public class NormalGameManager : MonoBehaviour
                 //{
                 //    thought = Thought.GetRandomPositiveThought();
                 //}
-                thought = Thought.GetThoughtByName(Names.Negative_1_Hate); //test
+                thought = Thought.GetThoughtByName(Names.Positive_3_Optimism); //test
                 thoughtChoises.Add(new ThoughtChoise(thought));
                 /*thought = new Thought(true); //test раскомментить
                 while (thought.IsMomental)

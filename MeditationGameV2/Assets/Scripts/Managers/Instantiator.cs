@@ -35,7 +35,8 @@ public class Instantiator : MonoBehaviour
                 initedObj.transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
 
                 //set idea to object
-                var spawnMode = IdeaSpawnMode.all; //TODO: устанавливать режим в зависимости от текущих дум
+                var spawnMode = GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_4_Pessimism) ? IdeaSpawnMode.onlyNegative :
+                    GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_3_Optimism) ? IdeaSpawnMode.onlyPositive : IdeaSpawnMode.all;
                 initedObj.GetComponent<IdeaScript>().SetRandomThought(spawnMode);
 
                 //speed of falling 
