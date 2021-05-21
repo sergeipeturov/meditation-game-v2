@@ -23,25 +23,25 @@ public class Instantiator : MonoBehaviour
                 //position
                 float posX = Random.Range(-2.5f, 2.5f);
                 float posY = 5.3f;
+
                 //rotation
                 var previousRot = IdeaPrefab.transform.rotation;
                 var newRot = Quaternion.AngleAxis(Random.Range(-25.0f, 25.0f), Vector3.forward) * previousRot;
-                //speed of falling
-                //float speedOfFalling = Random.Range(0.0f, 50.0f);
-                float gravitiScale = 1.0f;//Random.Range(0.8f, 5.0f);
-                                          //size
+
                 float scaleSize = Random.Range(0.3f, 0.9f);
 
                 var initedObj = Instantiate(IdeaPrefab, new Vector3(posX, posY, 0.0f), newRot);
-                //initedObj.GetComponent<Rigidbody2D>().AddForce(Vector3.down * speedOfFalling);
-                //var fob = initedObj.GetComponent<FallingObjectBase>();
-                //fob.SetSpeedOfFalling(speedOfFalling);
-                initedObj.GetComponent<Rigidbody2D>().gravityScale = gravitiScale;
                 initedObj.transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
-                initedObj.GetComponent<IdeaScript>().SetRandomThought(IdeaSpawnMode.all); //TODO: устанавливать режим в зависимости от текущих дум
+
+                //set idea to object
+                var spawnMode = IdeaSpawnMode.all; //TODO: устанавливать режим в зависимости от текущих дум
+                initedObj.GetComponent<IdeaScript>().SetRandomThought(spawnMode);
+
+                //speed of falling 
+                initedObj.GetComponent<Rigidbody2D>().AddForce(Vector2.down * GameManager.Instance.LevelsManager.CurrentLevel.IdeasFallingSpeed);
 
                 //new delay
-                delay = Random.Range(0.0f, 1.0f);
+                delay = Random.Range(GameManager.Instance.LevelsManager.CurrentLevel.MinTimeBetweenIdeas, GameManager.Instance.LevelsManager.CurrentLevel.MaxTimeBetweenIdeas);
             }
         }
     }

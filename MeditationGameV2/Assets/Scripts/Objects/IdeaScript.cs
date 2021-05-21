@@ -44,10 +44,13 @@ public class IdeaScript : MonoBehaviour
 
     private void Update()
     {
+        //if (!wasCollision)
+        //    transform.position += Vector3.down * 10 * Time.deltaTime;
         if (SpeedOfFalling != 0)
         {
             //GetComponent<Rigidbody2D>().AddForce(Vector3.down * SpeedOfFalling * Time.deltaTime);
-            transform.position += Vector3.down * SpeedOfFalling * Time.deltaTime;
+            //transform.position += Vector3.down * SpeedOfFalling * Time.deltaTime; //норм
+            //transform.position += Vector3.down * 10000000 * Time.deltaTime;
         }
     }
 
@@ -62,5 +65,11 @@ public class IdeaScript : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        wasCollision = true;
+    }
+
     private float speedOfFalling;
+    private bool wasCollision = false;
 }

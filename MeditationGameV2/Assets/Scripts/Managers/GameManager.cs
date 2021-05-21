@@ -14,19 +14,9 @@ public class GameManager : MonoBehaviour
     public MainMenuManager MainMenuManager { get { return GetComponent<MainMenuManager>(); } }
     public SpritesManager SpritesManager { get { return GetComponent<SpritesManager>(); } }
     public Instantiator Instantiator { get { return GetComponent<Instantiator>(); } }
+    public LevelsManager LevelsManager { get { return GetComponent<LevelsManager>(); } }
     public int CurrentLevel { get; private set; }
     public static GameManager Instance { get { return GameObject.Find("GameManager").GetComponent<GameManager>(); } }
-
-    //private Scene _CurrentScene; //все, что связано с этими переменными - ебучие костыли, но пока не хочу с этим разбираться, для такой простой игры хватит и костылей
-    //private Scene CurrentScene 
-    //{
-    //    get { return _CurrentScene; } 
-    //    set
-    //    {
-    //        _CurrentScene = value;
-    //        SceneManager_sceneLoaded();
-    //    }
-    //}
 
     private void Awake()
     {
@@ -36,37 +26,10 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(Background);
     }
 
-    private void Update()
-    {
-        //if (StateMachine.GameState == GameState.gameNormal && (CurrentScene == null || CurrentScene.name != "NormalGame"))
-        //    CurrentScene = SceneManager.GetActiveScene();
-    }
-
     public void SetUpLevel()
     {
         CurrentLevel = MainMenuManager.SelectedLevel;
         StateMachine.GameState = GameState.gameNormal;
         SceneManager.LoadScene(1);
-        
-    }
-
-    private void SceneManager_sceneLoaded()
-    {
-        //if (StateMachine.GameState == GameState.gameNormal && CurrentScene.name == "NormalGame")
-        //{
-        //    Background.GetComponent<BackgroundManager>().GoBlackBack();
-        //   UIManager.ShowIntro(CurrentLevel);
-        //    UIManager.IntroPanel.transform.Find("Button").GetComponent<LevelIntroButton>().GoLevelNotify += GoLevel;
-        //}
-    }
-
-    private void GoLevel()
-    {
-        //Background.GetComponent<BackgroundManager>().GoUsualBack();
-        //UIManager.DisableIntro();
-
-        //Circle.SetActive(true);
-        //CircleScript.BlockMove(false);
-        //CircleScript.EnableOreol();
     }
 }
