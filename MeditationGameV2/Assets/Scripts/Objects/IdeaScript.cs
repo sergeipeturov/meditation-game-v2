@@ -44,6 +44,7 @@ public class IdeaScript : MonoBehaviour
             if (curTimeWithoutCollider >= maxTimeWithoutCollider)
             {
                 curTimeWithoutCollider = 0.0f;
+                GetComponent<Collider2D>().enabled = true;
                 colliderOff = false;
             }
         }
@@ -58,6 +59,9 @@ public class IdeaScript : MonoBehaviour
                 }
             }
         }
+
+        //irritation realization
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -80,5 +84,5 @@ public class IdeaScript : MonoBehaviour
     private bool wasCollision = false;
     private bool colliderOff = false;
     private float curTimeWithoutCollider = 0.0f;
-    private float maxTimeWithoutCollider = 1.0f;
+    private float maxTimeWithoutCollider = 0.9f;
 }
