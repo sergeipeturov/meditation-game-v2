@@ -59,23 +59,53 @@ public class PlayerManager : MonoBehaviour
 
     public void AddThought(Thought thought)
     {
+        Debug.Log("Adding Thought!");
         if (thought.IsPositive)
         {
-            var same = PosistiveThoughts.FirstOrDefault(x => x == thought);
+            var same = PosistiveThoughts.FirstOrDefault(x => x.Name == thought.Name);
             if (same != null)
+            {
+                Debug.Log("Added!");
                 same.CurrentTimeOfLife = 0.0f;
+            }
             else
+            {
+                Debug.Log("Added!");
                 PosistiveThoughts.Add(thought);
+            }
         }
         else
         {
-            var same = NegativeThoughts.FirstOrDefault(x => x == thought);
+            var same = NegativeThoughts.FirstOrDefault(x => x.Name == thought.Name);
             if (same != null)
+            {
+                Debug.Log("Added!");
                 same.CurrentTimeOfLife = 0.0f;
+            }
             else
+            {
+                Debug.Log("Added!");
                 NegativeThoughts.Add(thought);
+            }
         }
         ThoughtAddedNotify?.Invoke(thought);
+        NormalGameManager.Instance.EffectorUIManager.UpdatePositiveUIs(PosistiveThoughts);
+        NormalGameManager.Instance.EffectorUIManager.UpdateNegativeUIs(NegativeThoughts);
+    }
+
+    public void RemoveAllThoughts()
+    {
+        foreach (var item in PosistiveThoughts)
+        {
+                toRemove.Add(item);
+        }
+        foreach (var item in toRemove)
+        {
+            RemoveThought(item);
+        }
+        toRemove.Clear();
+        //NormalGameManager.Instance.EffectorUIManager.UpdatePositiveUIs(PosistiveThoughts);
+        //NormalGameManager.Instance.EffectorUIManager.UpdateNegativeUIs(NegativeThoughts);
     }
 
     private void RemoveThought(Thought thought)
@@ -86,6 +116,8 @@ public class PlayerManager : MonoBehaviour
             NegativeThoughts.Remove(thought);
 
         ThoughtRemovedNotify?.Invoke(thought);
+        NormalGameManager.Instance.EffectorUIManager.UpdatePositiveUIs(PosistiveThoughts);
+        NormalGameManager.Instance.EffectorUIManager.UpdateNegativeUIs(NegativeThoughts);
     }
 
     private List<Thought> toRemove = new List<Thought>();

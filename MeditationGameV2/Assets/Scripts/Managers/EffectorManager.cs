@@ -37,7 +37,8 @@ public class EffectorManager : MonoBehaviour
                 curTimeWithoutSpriteRenderer = 0.0f;
                 foreach (var item in GameManager.Instance.Ideas)
                 {
-                    item.GetComponent<SpriteRenderer>().enabled = true;
+                    if (item != null)
+                        item.GetComponent<SpriteRenderer>().enabled = true;
                 }
                 spriteRenrererOff = false;
             }
@@ -50,7 +51,8 @@ public class EffectorManager : MonoBehaviour
                 {
                     foreach (var item in GameManager.Instance.Ideas)
                     {
-                        item.GetComponent<SpriteRenderer>().enabled = false;
+                        if (item != null)
+                            item.GetComponent<SpriteRenderer>().enabled = false;
                     }
                     spriteRenrererOff = true;
                 }

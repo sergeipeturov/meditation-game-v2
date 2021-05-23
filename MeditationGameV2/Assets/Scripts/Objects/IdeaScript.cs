@@ -44,7 +44,8 @@ public class IdeaScript : MonoBehaviour
             if (curTimeWithoutCollider >= maxTimeWithoutCollider)
             {
                 curTimeWithoutCollider = 0.0f;
-                GetComponent<Collider2D>().enabled = true;
+                //GetComponent<Collider2D>().enabled = true;
+                GetComponent<Collider2D>().isTrigger = true;
                 colliderOff = false;
             }
         }
@@ -54,7 +55,8 @@ public class IdeaScript : MonoBehaviour
             {
                 if (Randomizer.GetResultByChanse(Constants.ChanceOfWorryEffect))
                 {
-                    GetComponent<Collider2D>().enabled = false;
+                    //GetComponent<Collider2D>().enabled = false;
+                    GetComponent<Collider2D>().isTrigger = false;
                     colliderOff = true;
                 }
             }
@@ -78,6 +80,47 @@ public class IdeaScript : MonoBehaviour
             {
                 GameManager.Instance.Ideas.Remove(gameObject);
                 Destroy(gameObject);
+            }
+
+            if (collision.gameObject.tag.Contains("FailField"))
+            {
+                if (Thought.Name == Names.Negative_8_Jealousy)
+                {
+                    int count = Random.Range(1, 5);
+                    var toAdd = new List<Thought>();
+                    while (toAdd.Count < count)
+                    {
+                        var thoughtToAdd = Thought.GetRandomThought();
+                        while (toAdd.Any(x => x == thoughtToAdd) || thoughtToAdd.Name == Names.Negative_8_Jealousy || thoughtToAdd.Name == Names.Positive_8_Serenity)
+                        {
+                            thoughtToAdd = Thought.GetRandomThought();
+                        }
+                        thoughtToAdd.SetTimeOfLife(GameManager.Instance.LevelsManager.CurrentLevel.ThoughtsTimeOfLife);
+                        if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_9_Boredom))
+                            thoughtToAdd.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromBoredom);
+                        if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_4_Inspiration))
+                            thoughtToAdd.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromInspiration);
+                        toAdd.Add(thoughtToAdd);
+                    }
+                    Debug.Log("Start adding Jealousy thoughts!");
+                    foreach (var item in toAdd)
+                    {
+                        Debug.Log("Adding " + item.Name);
+                        GameManager.Instance.PlayerManager.AddThought(item);
+                    }
+                    Debug.Log("Stop adding Jealousy thoughts!");
+                }
+                else if (Thought.Name == Names.Positive_8_Serenity)
+                {
+                    GameManager.Instance.PlayerManager.RemoveAllThoughts();
+                }
+                else
+                {
+                    Debug.Log("In IdeaScript. Must add Thought!");
+                    GameManager.Instance.PlayerManager.AddThought(Thought);
+                }
+
+                Destroy(this.gameObject);
             }
         }
     }
