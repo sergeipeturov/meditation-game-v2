@@ -86,7 +86,7 @@ public class NormalGameManager : MonoBehaviour
                 //    if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_4_Inspiration))
                 //      thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromInspiration);
                 //}
-                thought = Thought.GetThoughtByName(Names.Negative_6_Guilt); //test
+                thought = Thought.GetThoughtByName(Names.Negative_10_Sorrow); //test
                 thought.SetTimeOfLife(GameManager.Instance.LevelsManager.CurrentLevel.ThoughtsTimeOfLife);
                 thoughtChoises.Add(new ThoughtChoise(thought));
                 /*thought = new Thought(true); //test раскомментить

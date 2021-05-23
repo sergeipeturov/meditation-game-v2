@@ -32,6 +32,7 @@ public class Instantiator : MonoBehaviour
                 float scaleSize = Random.Range(0.3f, 0.9f);
 
                 var initedObj = Instantiate(IdeaPrefab, new Vector3(posX, posY, 0.0f), newRot);
+                GameManager.Instance.Ideas.Add(initedObj);
                 initedObj.transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
 
                 //set idea to object

@@ -76,6 +76,7 @@ public class IdeaScript : MonoBehaviour
         {
             if (collision.gameObject.tag.Contains("GameBorder"))
             {
+                GameManager.Instance.Ideas.Remove(gameObject);
                 Destroy(gameObject);
             }
         }
@@ -89,6 +90,7 @@ public class IdeaScript : MonoBehaviour
     private float speedOfFalling;
     private bool wasCollision = false;
     private bool colliderOff = false;
+    private bool spriteRendererOff = false;
     private float curTimeWithoutCollider = 0.0f;
     private float maxTimeWithoutCollider = 0.9f;
 }
