@@ -84,7 +84,7 @@ public class IdeaScript : MonoBehaviour
                 Destroy(gameObject);
             }
 
-            if (collision.gameObject.tag.Contains("FailField"))
+            if (collision.gameObject.tag.Contains("FailField") && GameManager.Instance.StateMachine.GameState == GameState.gameNormalPlaying)
             {
                 if (Thought.Name == Names.Negative_8_Jealousy)
                 {

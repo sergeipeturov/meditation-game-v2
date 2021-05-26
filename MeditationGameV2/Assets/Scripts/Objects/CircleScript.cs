@@ -23,6 +23,11 @@ public class CircleScript : MonoBehaviour
 
     public void StartMoving()
     {
+        if (GameManager.Instance.StateMachine.GameState == GameState.boss)
+        {
+            manScript = GameObject.Find("Man").GetComponent<ManScript>();
+        }
+
         if (canMove)
         {
             isMoving = true;
@@ -40,6 +45,11 @@ public class CircleScript : MonoBehaviour
                 GameManager.Instance.StateMachine.GameState = GameState.gameNormalPlaying;
                 NormalGameManager.Instance.EffectorUIManager.EnablePanels();
             }
+
+            if (GameManager.Instance.StateMachine.GameState == GameState.boss)
+            {
+                GameManager.Instance.StateMachine.GameState = GameState.bossPlaying;
+            }
         }
     }
 
@@ -56,6 +66,12 @@ public class CircleScript : MonoBehaviour
                 isSystem = true;
                 transform.position = new Vector3(0.0f, 0.0f, 0.0f);
             }
+
+            if (GameManager.Instance.StateMachine.GameState == GameState.gameNormalPreBoss)
+            {
+                transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+                GameManager.Instance.GoBossGame();
+            }
         }
     }
 
@@ -64,6 +80,13 @@ public class CircleScript : MonoBehaviour
         if (canMove)
         {
             transform.position = new Vector3(position.x, position.y, 0.0f);
+            if (GameManager.Instance.StateMachine.GameState == GameState.bossPlaying)
+            {
+                if (manScript != null)
+                {
+                    manScript.Move(position);
+                }
+            }
         }
     }
 
@@ -139,4 +162,5 @@ public class CircleScript : MonoBehaviour
     private bool isMoving = false;
     private bool isSystem = false;
     private bool canMove = true;
+    private ManScript manScript;
 }

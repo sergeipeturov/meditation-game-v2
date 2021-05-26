@@ -10,6 +10,7 @@ public class EffectorUIManager : MonoBehaviour
     public GameObject[] NegativeUIs;
     public GameObject PositiveUIsPanel;
     public GameObject NegativeUIsPanel;
+    public GameObject TimerSlider;
 
     public void EnablePanels()
     {
@@ -56,6 +57,25 @@ public class EffectorUIManager : MonoBehaviour
             {
                 item.SetActive(false);
             }
+        }
+    }
+
+    public void SetTimerSlider(float timeToReach)
+    {
+        TimerSlider.GetComponent<Slider>().maxValue = timeToReach;
+    }
+
+    public void UpdateTimerSlider(float time)
+    {
+        if (time > 0)
+        {
+            TimerSlider.SetActive(true);
+            TimerSlider.GetComponent<Slider>().value = time;
+        }
+        else
+        {
+            TimerSlider.GetComponent<Slider>().value = time;
+            TimerSlider.SetActive(false);
         }
     }
 }

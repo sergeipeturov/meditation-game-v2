@@ -25,10 +25,32 @@ public class NormalGameManager : MonoBehaviour
         NormalGameState = NormalGameState.intro;
     }
 
+    private void Update()
+    {
+        if (GameManager.Instance.StateMachine.GameState == GameState.gameNormalPlaying)
+        {
+            if (!GameManager.Instance.PlayerManager.PosistiveThoughts.Any() && !GameManager.Instance.PlayerManager.NegativeThoughts.Any())
+            {
+                timeWithoutThoughts += Time.deltaTime;
+                EffectorUIManager.UpdateTimerSlider(timeWithoutThoughts);
+                if (timeWithoutThoughts >= GameManager.Instance.LevelsManager.CurrentLevel.TimeToReach)
+                {
+                    GoBossFight();
+                }
+            }
+            else
+            {
+                timeWithoutThoughts = 0.0f;
+                EffectorUIManager.UpdateTimerSlider(timeWithoutThoughts);
+            }
+        }
+    }
+
     private void OnNormalGameStateChange()
     {
         if (NormalGameState == NormalGameState.intro)
         {
+            EffectorUIManager.SetTimerSlider(GameManager.Instance.LevelsManager.CurrentLevel.TimeToReach);
             EffectorUIManager.DisablePanels();
             GameManager.Instance.Background.GetComponent<BackgroundManager>().GoBlackBack();
             GameManager.Instance.UIManager.ShowIntro(GameManager.Instance.CurrentLevel);
@@ -189,6 +211,15 @@ public class NormalGameManager : MonoBehaviour
         return res;
     }
 
+    private void GoBossFight()
+    {
+        GameManager.Instance.StateMachine.GameState = GameState.gameNormalPreBoss;
+        GameManager.Instance.CircleScript.EnableOreol();
+
+        //GameManager.Instance.GoBossGame();
+    }
+
     private NormalGameState normalGameState;
     private List<ThoughtChoise> thoughtChoises = new List<ThoughtChoise>();
+    private float timeWithoutThoughts = 0.0f;
 }

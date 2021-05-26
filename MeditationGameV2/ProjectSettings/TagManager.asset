@@ -9,6 +9,7 @@ TagManager:
   - GameBorder
   - FailField
   - Idea
+  - Man
   layers:
   - Default
   - TransparentFX
