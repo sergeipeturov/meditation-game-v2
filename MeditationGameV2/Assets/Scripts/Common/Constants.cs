@@ -14,6 +14,7 @@ public static class Constants
     public const int ChanceOfWorryEffect = 2;
     public const int ChanceOfIrritationEffect = 100;
     public const int ChanceOfSorrowEffect = 2;
+    public const int ChanceOfCalmnessEffect = 70;
 }
 
 public static class Names

@@ -126,7 +126,17 @@ public class IdeaScript : MonoBehaviour
                         MeditationGameUtils.SetTimeOfLife(ref th);
                         Thought = th;
                     }
-                    GameManager.Instance.PlayerManager.AddThought(Thought);
+                    if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_7_Calmness)) //calmness realization
+                    {
+                        if (!Randomizer.GetResultByChanse(Constants.ChanceOfCalmnessEffect))
+                        {
+                            GameManager.Instance.PlayerManager.AddThought(Thought);
+                        }
+                    }
+                    else
+                    {
+                        GameManager.Instance.PlayerManager.AddThought(Thought);
+                    }
                 }
 
                 Destroy(this.gameObject);

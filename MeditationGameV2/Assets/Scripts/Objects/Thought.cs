@@ -158,7 +158,7 @@ public class Thought
         var positives = GetPositiveThoughts();
         var negatives = GetNegativeThoughts();
         int which = Random.Range(0, 2);
-        int what = Random.Range(0, 10);
+        int what = Random.Range(0, 9);
         if (which == 0)
             return positives[what];
         else
@@ -168,14 +168,14 @@ public class Thought
     public static Thought GetRandomPositiveThought()
     {
         var positives = GetPositiveThoughts();
-        int what = Random.Range(0, 10);
+        int what = Random.Range(0, 9);
         return positives[what];
     }
 
     public static Thought GetRandomNegativeThought()
     {
         var negatives = GetNegativeThoughts();
-        int what = Random.Range(0, 10);
+        int what = Random.Range(0, 9);
         return negatives[what];
     }
 
