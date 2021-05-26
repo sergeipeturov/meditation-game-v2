@@ -10,6 +10,7 @@ TagManager:
   - FailField
   - Idea
   - Man
+  - Enemy
   layers:
   - Default
   - TransparentFX
