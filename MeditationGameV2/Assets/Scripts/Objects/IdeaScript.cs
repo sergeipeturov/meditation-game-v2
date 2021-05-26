@@ -46,6 +46,7 @@ public class IdeaScript : MonoBehaviour
                 curTimeWithoutCollider = 0.0f;
                 //GetComponent<Collider2D>().enabled = true;
                 GetComponent<Collider2D>().isTrigger = true;
+                GetComponent<SpriteRenderer>().color = new Color(GetComponent<SpriteRenderer>().color.r, GetComponent<SpriteRenderer>().color.g, GetComponent<SpriteRenderer>().color.b, 0.5f);
                 colliderOff = false;
             }
         }
@@ -57,6 +58,7 @@ public class IdeaScript : MonoBehaviour
                 {
                     //GetComponent<Collider2D>().enabled = false;
                     GetComponent<Collider2D>().isTrigger = false;
+                    GetComponent<SpriteRenderer>().color = new Color(GetComponent<SpriteRenderer>().color.r, GetComponent<SpriteRenderer>().color.g, GetComponent<SpriteRenderer>().color.b, 1.0f);
                     colliderOff = true;
                 }
             }
