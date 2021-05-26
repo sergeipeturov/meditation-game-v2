@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -118,6 +119,19 @@ public class CircleScript : MonoBehaviour
                         collision.gameObject.transform.rotation = Quaternion.AngleAxis(-25.0f, Vector3.forward) * collision.gameObject.transform.rotation;
                     }
                 }
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //love realization
+        if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_9_Love))
+        {
+            if (collision != null && collision.gameObject != null && collision.gameObject.tag == "Idea")
+            {
+                Destroy(collision.gameObject);
+                //TODO: добавить анимацию уничтожения
             }
         }
     }

@@ -79,8 +79,8 @@ public class NormalGameManager : MonoBehaviour
                 Thought thought = new Thought(true);
                 while (thought.IsMomental) //test раскомментить
                 {
-                    //thought = Thought.GetRandomPositiveThought(); //test. раскомментить
-                    thought = Thought.GetThoughtByName(Names.Positive_7_Calmness);
+                    thought = Thought.GetRandomPositiveThought(); //test. раскомментить
+                    //thought = Thought.GetThoughtByName(Names.Positive_9_Love); //test
                     /*thought.SetTimeOfLife(GameManager.Instance.LevelsManager.CurrentLevel.ThoughtsTimeOfLife);
                     if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_9_Boredom))
                       thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromBoredom);

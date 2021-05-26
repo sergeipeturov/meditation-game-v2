@@ -8,6 +8,7 @@ TagManager:
   - MainMenuButton
   - GameBorder
   - FailField
+  - Idea
   layers:
   - Default
   - TransparentFX
