@@ -41,11 +41,13 @@ public class Instantiator : MonoBehaviour
                 initedObj.GetComponent<IdeaScript>().SetRandomThought(spawnMode);
 
                 //time of life
-                initedObj.GetComponent<IdeaScript>().Thought.SetTimeOfLife(GameManager.Instance.LevelsManager.CurrentLevel.ThoughtsTimeOfLife);
+                /*initedObj.GetComponent<IdeaScript>().Thought.SetTimeOfLife(GameManager.Instance.LevelsManager.CurrentLevel.ThoughtsTimeOfLife);
                 if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_9_Boredom))
                     initedObj.GetComponent<IdeaScript>().Thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromBoredom);
                 if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_4_Inspiration))
-                    initedObj.GetComponent<IdeaScript>().Thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromInspiration);
+                    initedObj.GetComponent<IdeaScript>().Thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromInspiration);*/
+                var th = initedObj.GetComponent<IdeaScript>().Thought;
+                MeditationGameUtils.SetTimeOfLife(ref th);
 
                 //speed of falling 
                 float speed = GameManager.Instance.LevelsManager.CurrentLevel.IdeasFallingSpeed;

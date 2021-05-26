@@ -83,11 +83,11 @@ public class Thought
                 Name = Names.Positive_9_Love,
                 IsPositive = true
             },
-            new Thought()
+            /*new Thought()
             {
                 Name = Names.Positive_10_Enthusiasm,
                 IsPositive = true
-            }
+            }*/
         };
         return res;
     }
@@ -144,11 +144,11 @@ public class Thought
                 //TimeOfLife = 
                 IsPositive = false
             },
-            new Thought()
+            /*new Thought()
             {
                 Name = Names.Negative_10_Sorrow,
                 IsPositive = false
-            }
+            }*/
         };
         return res;
     }

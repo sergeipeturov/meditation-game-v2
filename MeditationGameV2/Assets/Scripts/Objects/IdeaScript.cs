@@ -97,11 +97,12 @@ public class IdeaScript : MonoBehaviour
                         {
                             thoughtToAdd = Thought.GetRandomThought();
                         }
-                        thoughtToAdd.SetTimeOfLife(GameManager.Instance.LevelsManager.CurrentLevel.ThoughtsTimeOfLife);
+                        /*thoughtToAdd.SetTimeOfLife(GameManager.Instance.LevelsManager.CurrentLevel.ThoughtsTimeOfLife);
                         if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_9_Boredom))
                             thoughtToAdd.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromBoredom);
                         if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_4_Inspiration))
-                            thoughtToAdd.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromInspiration);
+                            thoughtToAdd.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromInspiration);*/
+                        MeditationGameUtils.SetTimeOfLife(ref thoughtToAdd);
                         toAdd.Add(thoughtToAdd);
                     }
                     Debug.Log("Start adding Jealousy thoughts!");
@@ -119,6 +120,12 @@ public class IdeaScript : MonoBehaviour
                 else
                 {
                     Debug.Log("In IdeaScript. Must add Thought!");
+                    if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_6_Satisfaction))
+                    {
+                        var th = Thought.GetRandomPositiveThought();
+                        MeditationGameUtils.SetTimeOfLife(ref th);
+                        Thought = th;
+                    }
                     GameManager.Instance.PlayerManager.AddThought(Thought);
                 }
 
