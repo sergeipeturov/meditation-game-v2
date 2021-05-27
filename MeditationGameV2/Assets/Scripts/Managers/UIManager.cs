@@ -23,11 +23,11 @@ public class UIManager : MonoBehaviour
                 introText.text = $"Здесь будет глубокомысленное описание 1 этапа.";
                 break;
             case 2:
-                levelTitle.text = $"Этап 2.{Environment.NewLine}Беспокойства";
+                levelTitle.text = $"Этап 2.{Environment.NewLine}Желания";
                 introText.text = $"Здесь будет глубокомысленное описание 2 этапа.";
                 break;
             case 3:
-                levelTitle.text = $"Этап 3.{Environment.NewLine}Желания";
+                levelTitle.text = $"Этап 3.{Environment.NewLine}Беспокойства";
                 introText.text = $"Здесь будет глубокомысленное описание 3 этапа.";
                 break;
             case 4:
@@ -35,11 +35,11 @@ public class UIManager : MonoBehaviour
                 introText.text = $"Здесь будет глубокомысленное описание 4 этапа.";
                 break;
             case 5:
-                levelTitle.text = $"Этап 5.{Environment.NewLine}Уныние";
+                levelTitle.text = $"Этап 5.{Environment.NewLine}Стресс";
                 introText.text = $"Здесь будет глубокомысленное описание 5 этапа.";
                 break;
             case 6:
-                levelTitle.text = $"Этап 6.{Environment.NewLine}Стресс";
+                levelTitle.text = $"Этап 6.{Environment.NewLine}Уныние";
                 introText.text = $"Здесь будет глубокомысленное описание 6 этапа.";
                 break;
             case 7:
@@ -74,19 +74,19 @@ public class UIManager : MonoBehaviour
                 levelTitle.text = $"Этап 1.{Environment.NewLine}Амбиции";
                 break;
             case 2:
-                levelTitle.text = $"Этап 2.{Environment.NewLine}Беспокойства";
+                levelTitle.text = $"Этап 2.{Environment.NewLine}Желания";
                 break;
             case 3:
-                levelTitle.text = $"Этап 3.{Environment.NewLine}Желания";
+                levelTitle.text = $"Этап 3.{Environment.NewLine}Беспокойства";
                 break;
             case 4:
                 levelTitle.text = $"Этап 4.{Environment.NewLine}Страхи";
                 break;
             case 5:
-                levelTitle.text = $"Этап 5.{Environment.NewLine}Уныние";
+                levelTitle.text = $"Этап 5.{Environment.NewLine}Стресс";
                 break;
             case 6:
-                levelTitle.text = $"Этап 6.{Environment.NewLine}Стресс";
+                levelTitle.text = $"Этап 6.{Environment.NewLine}Уныние";
                 break;
             case 7:
                 levelTitle.text = $"Этап 7.{Environment.NewLine}Сожаления";

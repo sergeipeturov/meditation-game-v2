@@ -3533,6 +3533,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9062140476528783352, guid: 56c02db03c3ac574aa58beae563da1ab,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 9062140476654949873, guid: 56c02db03c3ac574aa58beae563da1ab,
         type: 3}
       propertyPath: m_RootOrder
@@ -3593,10 +3598,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: CircleObject
       objectReference: {fileID: 0}
+    - target: {fileID: 9062140476654949874, guid: 56c02db03c3ac574aa58beae563da1ab,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 9062140477501525421, guid: 56c02db03c3ac574aa58beae563da1ab,
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062140477501525422, guid: 56c02db03c3ac574aa58beae563da1ab,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56c02db03c3ac574aa58beae563da1ab, type: 3}

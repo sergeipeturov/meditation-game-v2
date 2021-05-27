@@ -87,19 +87,19 @@ public class MainMenuManager : MonoBehaviour
                 LevelDescriptionText.text = "Этап 1. Амбиции.";
                 break;
             case 2:
-                LevelDescriptionText.text = "Этап 2. Беспокойства.";
+                LevelDescriptionText.text = "Этап 2. Желания.";
                 break;
             case 3:
-                LevelDescriptionText.text = "Этап 3. Желания.";
+                LevelDescriptionText.text = "Этап 3. Беспокойства.";
                 break;
             case 4:
                 LevelDescriptionText.text = "Этап 4. Страхи.";
                 break;
             case 5:
-                LevelDescriptionText.text = "Этап 5. Уныние.";
+                LevelDescriptionText.text = "Этап 5. Стресс.";
                 break;
             case 6:
-                LevelDescriptionText.text = "Этап 6. Стресс.";
+                LevelDescriptionText.text = "Этап 6. Уныние.";
                 break;
             case 7:
                 LevelDescriptionText.text = "Этап 7. Сожаления.";

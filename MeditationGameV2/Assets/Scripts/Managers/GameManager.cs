@@ -38,6 +38,6 @@ public class GameManager : MonoBehaviour
     public void GoBossGame()
     {
         StateMachine.GameState = GameState.boss;
-        SceneManager.LoadScene(2); //TODO: в зависимости от текущего уровня грузить нужные босс-уровни
+        SceneManager.LoadScene(CurrentLevel + 1);
     }
 }

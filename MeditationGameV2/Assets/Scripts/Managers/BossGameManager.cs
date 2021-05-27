@@ -8,6 +8,7 @@ public class BossGameManager : MonoBehaviour
     public GameObject Man;
     public GameObject[] LifeUIs;
     public GameObject TimerSlider;
+    public GameObject FailPanel;
 
     private void Awake()
     {
@@ -27,6 +28,17 @@ public class BossGameManager : MonoBehaviour
             bossGameState = value;
             OnBossGameStateChange();
         }
+    }
+
+    public virtual void OnOKClick()
+    {
+        //TODO: выход в меню выбора уровня
+    }
+
+    public void GoWin()
+    {
+        FailPanel.GetComponent<Animator>().SetTrigger("fadeIn");
+        GameManager.Instance.CircleScript.FingerReleaseEventNotify -= GoWin;
     }
 
     private void OnBossGameStateChange()
@@ -54,22 +66,45 @@ public class BossGameManager : MonoBehaviour
             TimerSlider.GetComponent<Slider>().value = curTimerSliderTime;
             if (curTimerSliderTime >= maxTimerSliderTime)
             {
-                //TODO: gameover (win)
+                SetWinText();
+                GameManager.Instance.StateMachine.GameState = GameState.bossPreWin;
+                GameManager.Instance.CircleScript.EnableOreol();
+                GameManager.Instance.CircleScript.FingerReleaseEventNotify += GoWin;
             }
         }
     }
 
     private void BossGameManager_DamageNotify()
     {
-        LifeUIs[lifes - 1].SetActive(false);
-        lifes--;
-        //TODO: gameover (fail) + animation of damage
+        if (GameManager.Instance.StateMachine.GameState == GameState.bossPlaying)
+        {
+            LifeUIs[lifes - 1].SetActive(false);
+            lifes--;
+            //TODO: animation of damage
+        }
+
+        if (lifes == 0)
+        {
+            SetFailText();
+            GameManager.Instance.StateMachine.GameState = GameState.bossFail;
+            FailPanel.GetComponent<Animator>().SetTrigger("fadeIn");
+        }
     }
 
     protected virtual void SetTimerSlider()
     {
         maxTimerSliderTime = 60.0f;
         TimerSlider.GetComponent<Slider>().maxValue = maxTimerSliderTime;
+    }
+
+    protected virtual void SetFailText()
+    {
+
+    }
+
+    protected virtual void SetWinText()
+    {
+
     }
 
     private BossGameState bossGameState;

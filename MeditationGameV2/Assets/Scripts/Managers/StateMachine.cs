@@ -38,6 +38,18 @@ public enum GameState
     /// играется игра с боссом (после того, как игрок коснулся круга и у того исчезл ореол)
     /// </summary>
     bossPlaying,
+    /// <summary>
+    /// битва с боссом проиграна
+    /// </summary>
+    bossFail,
+    /// <summary>
+    /// битва с боссом выиграна, но игроку еще надо отпустить палец с круга
+    /// </summary>
+    bossPreWin,
+    /// <summary>
+    /// битва с боссом выиграна
+    /// </summary>
+    bossWin
 }
 
 public enum NormalGameState

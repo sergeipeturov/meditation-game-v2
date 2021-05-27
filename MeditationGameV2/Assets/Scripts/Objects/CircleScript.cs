@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CircleScript : MonoBehaviour
 {
+    public delegate void FingerReleaseEvent();
+    public event FingerReleaseEvent FingerReleaseEventNotify;
+
     public Animator CircleAnimator { get; private set; }
     public GameObject OreolGameObject { get; private set; }
 
@@ -71,6 +74,12 @@ public class CircleScript : MonoBehaviour
             {
                 transform.position = new Vector3(0.0f, 0.0f, 0.0f);
                 GameManager.Instance.GoBossGame();
+            }
+
+            if (GameManager.Instance.StateMachine.GameState == GameState.bossPreWin)
+            {
+                GameManager.Instance.StateMachine.GameState = GameState.bossWin;
+                FingerReleaseEventNotify?.Invoke();
             }
         }
     }
