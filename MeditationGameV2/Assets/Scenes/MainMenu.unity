@@ -2859,8 +2859,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1241504014}
-        m_MethodName: SetUpLevel
+      - m_Target: {fileID: 2134231237}
+        m_MethodName: OnSetUpLevelClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

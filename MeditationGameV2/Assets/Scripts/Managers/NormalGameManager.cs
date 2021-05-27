@@ -50,6 +50,7 @@ public class NormalGameManager : MonoBehaviour
     {
         if (NormalGameState == NormalGameState.intro)
         {
+            GameManager.Instance.Circle.SetActive(false);
             EffectorUIManager.SetTimerSlider(GameManager.Instance.LevelsManager.CurrentLevel.TimeToReach);
             EffectorUIManager.DisablePanels();
             GameManager.Instance.Background.GetComponent<BackgroundManager>().GoBlackBack();
@@ -97,36 +98,40 @@ public class NormalGameManager : MonoBehaviour
         thoughtChoises.Clear();
         switch (GameManager.Instance.CurrentLevel)
         {
-            case 1: //две думы - положительная и отрицательная //test: на время теста - одна
+            case 1: //две думы - положительная и отрицательная
                 Thought thought = new Thought(true);
-                while (thought.IsMomental) //test раскомментить
+                while (thought.IsMomental)
                 {
-                    thought = Thought.GetRandomPositiveThought(); //test. раскомментить
-                    //thought = Thought.GetThoughtByName(Names.Positive_9_Love); //test
-                    /*thought.SetTimeOfLife(GameManager.Instance.LevelsManager.CurrentLevel.ThoughtsTimeOfLife);
-                    if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_9_Boredom))
-                      thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromBoredom);
-                    if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_4_Inspiration))
-                      thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromInspiration);*/
+                    thought = Thought.GetRandomPositiveThought();
                     MeditationGameUtils.SetTimeOfLife(ref thought);
                 }
-                //thought = Thought.GetThoughtByName(Names.Negative_3_Worry); //test
-                //thought.SetTimeOfLife(GameManager.Instance.LevelsManager.CurrentLevel.ThoughtsTimeOfLife); //test
                 thoughtChoises.Add(new ThoughtChoise(thought));
-                thought = new Thought(true); //test раскомментить
+                thought = new Thought(true);
                 while (thought.IsMomental)
                 {
                     thought = Thought.GetRandomNegativeThought();
-                    /*thought.SetTimeOfLife(GameManager.Instance.LevelsManager.CurrentLevel.ThoughtsTimeOfLife);
-                    if (GameManager.Instance.PlayerManager.NegativeThoughts.Any(x => x.Name == Names.Negative_9_Boredom))
-                      thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromBoredom);
-                    if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_4_Inspiration))
-                      thought.IncreaseTimeOfLife(Constants.BonusToTimeOfLifeFromInspiration);*/
                     MeditationGameUtils.SetTimeOfLife(ref thought);
                 }
                 thoughtChoises.Add(new ThoughtChoise(thought));
                 break;
-            case 2:
+            case 2: //три думы - две положительные, одна отрицательная
+                for (int i = 0; i < 2; i++)
+                {
+                    thought = new Thought(true);
+                    while (thought.IsMomental)
+                    {
+                        thought = Thought.GetRandomPositiveThought();
+                        MeditationGameUtils.SetTimeOfLife(ref thought);
+                    }
+                    thoughtChoises.Add(new ThoughtChoise(thought));
+                }
+                thought = new Thought(true);
+                while (thought.IsMomental)
+                {
+                    thought = Thought.GetRandomNegativeThought();
+                    MeditationGameUtils.SetTimeOfLife(ref thought);
+                }
+                thoughtChoises.Add(new ThoughtChoise(thought));
                 break;
             case 3:
                 break;
@@ -151,14 +156,21 @@ public class NormalGameManager : MonoBehaviour
         switch (GameManager.Instance.CurrentLevel)
         {
             case 1: //две думы - положительная и отрицательная
-                for (int i = 3; i <= 8; i++) //test. must be 3
+                for (int i = 3; i <= 8; i++)
                 {
                     GameManager.Instance.UIManager.ChoiseOfThoughtsPanel.transform.Find("ThoughtChoisesPanel").Find($"TC_{i}").gameObject.SetActive(false);
                 }
                 thoughtChoises[0].ThoughtChoiseViewName = "TC_1";
-                thoughtChoises[1].ThoughtChoiseViewName = "TC_2"; //test раскомментить
+                thoughtChoises[1].ThoughtChoiseViewName = "TC_2";
                 break;
-            case 2:
+            case 2: //три думы - две положительные, одна отрицательная
+                for (int i = 4; i <= 8; i++)
+                {
+                    GameManager.Instance.UIManager.ChoiseOfThoughtsPanel.transform.Find("ThoughtChoisesPanel").Find($"TC_{i}").gameObject.SetActive(false);
+                }
+                thoughtChoises[0].ThoughtChoiseViewName = "TC_1";
+                thoughtChoises[1].ThoughtChoiseViewName = "TC_2";
+                thoughtChoises[2].ThoughtChoiseViewName = "TC_3";
                 break;
             case 3:
                 break;

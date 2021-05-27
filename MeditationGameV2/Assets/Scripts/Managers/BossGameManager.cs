@@ -10,6 +10,8 @@ public class BossGameManager : MonoBehaviour
     public GameObject TimerSlider;
     public GameObject FailPanel;
 
+    public BossType BossType { get; set; }
+
     private void Awake()
     {
         BossGameState = BossGameState.intro;
@@ -17,7 +19,9 @@ public class BossGameManager : MonoBehaviour
         foreach (var item in LifeUIs)
             item.SetActive(true);
         lifes = 5;
+        SetBossType();
         SetTimerSlider();
+        SetBossLifes();
     }
 
     public BossGameState BossGameState
@@ -62,14 +66,17 @@ public class BossGameManager : MonoBehaviour
 
         if (GameManager.Instance.StateMachine.GameState == GameState.bossPlaying)
         {
-            curTimerSliderTime += Time.deltaTime;
-            TimerSlider.GetComponent<Slider>().value = curTimerSliderTime;
-            if (curTimerSliderTime >= maxTimerSliderTime)
+            if (BossType == BossType.timer)
             {
-                SetWinText();
-                GameManager.Instance.StateMachine.GameState = GameState.bossPreWin;
-                GameManager.Instance.CircleScript.EnableOreol();
-                GameManager.Instance.CircleScript.FingerReleaseEventNotify += GoWin;
+                curTimerSliderTime += Time.deltaTime;
+                TimerSlider.GetComponent<Slider>().value = curTimerSliderTime;
+                if (curTimerSliderTime >= maxTimerSliderTime)
+                {
+                    SetWinText();
+                    GameManager.Instance.StateMachine.GameState = GameState.bossPreWin;
+                    GameManager.Instance.CircleScript.EnableOreol();
+                    GameManager.Instance.CircleScript.FingerReleaseEventNotify += GoWin;
+                }
             }
         }
     }
@@ -91,10 +98,28 @@ public class BossGameManager : MonoBehaviour
         }
     }
 
+    protected virtual void SetBossType()
+    {
+        BossType = BossType.timer;
+        if (BossType == BossType.timer)
+        {
+            TimerSlider.SetActive(true);
+        }
+        if (BossType == BossType.lifer)
+        {
+            TimerSlider.SetActive(false);
+        }
+    }
+
     protected virtual void SetTimerSlider()
     {
         maxTimerSliderTime = 60.0f;
         TimerSlider.GetComponent<Slider>().maxValue = maxTimerSliderTime;
+    }
+
+    protected virtual void SetBossLifes()
+    {
+
     }
 
     protected virtual void SetFailText()
@@ -113,4 +138,10 @@ public class BossGameManager : MonoBehaviour
     int lifes = 5;
     float maxTimerSliderTime = 60.0f;
     float curTimerSliderTime = 0.0f;
+}
+
+public enum BossType
+{
+    timer,
+    lifer
 }

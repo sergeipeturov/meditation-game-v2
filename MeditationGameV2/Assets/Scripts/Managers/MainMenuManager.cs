@@ -122,6 +122,11 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    public void OnSetUpLevelClick()
+    {
+        GameManager.Instance.SetUpLevel();
+    }
+
     private void FadeOutAll()
     {
         SelectedButton.GetComponent<Animator>().SetTrigger("fadeOut");

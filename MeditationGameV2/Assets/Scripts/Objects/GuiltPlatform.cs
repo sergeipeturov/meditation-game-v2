@@ -42,6 +42,12 @@ public class GuiltPlatform : MonoBehaviour
             this.gameObject.SetActive(false);
     }
 
+    private void OnDestroy()
+    {
+        GameManager.Instance.PlayerManager.ThoughtAddedNotify -= PlayerManager_ThoughtAddedNotify;
+        GameManager.Instance.PlayerManager.ThoughtRemovedNotify -= PlayerManager_ThoughtRemovedNotify;
+    }
+
     private float curDelay = 0.0f;
     private float delay = 1.4f;
     private int mult = 1;

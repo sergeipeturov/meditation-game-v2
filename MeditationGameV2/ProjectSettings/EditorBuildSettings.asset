@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BossAmbitions.unity
     guid: c51c940a2d78804408d18b1a7b460ff4
+  - enabled: 1
+    path: Assets/Scenes/BossDesires.unity
+    guid: 324ba31c56bc11a4bb439512efc3fe3e
   m_configObjects: {}

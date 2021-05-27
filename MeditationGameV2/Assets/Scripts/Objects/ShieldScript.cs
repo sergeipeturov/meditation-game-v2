@@ -25,4 +25,10 @@ public class ShieldScript : MonoBehaviour
         if (thought.Name == Names.Positive_2_Concentration)
             this.gameObject.SetActive(false);
     }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.PlayerManager.ThoughtAddedNotify -= PlayerManager_ThoughtAddedNotify;
+        GameManager.Instance.PlayerManager.ThoughtRemovedNotify -= PlayerManager_ThoughtRemovedNotify;
+    }
 }
