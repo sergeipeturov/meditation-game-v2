@@ -110,6 +110,18 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    public void OpenSubmenu(int submenuIndex)
+    {
+        switch (submenuIndex)
+        {
+            case 0:
+                LevelSelectingPanel.SetActive(true);
+                break;
+            case 1:
+                break;
+        }
+    }
+
     private void FadeOutAll()
     {
         SelectedButton.GetComponent<Animator>().SetTrigger("fadeOut");
@@ -119,18 +131,6 @@ public class MainMenuManager : MonoBehaviour
                 item.SetActive(false);
             else
                 item.GetComponent<Animator>().SetTrigger("fadeOut");
-        }
-    }
-
-    private void OpenSubmenu(int submenuIndex)
-    {
-        switch (submenuIndex)
-        {
-            case 0:
-                LevelSelectingPanel.SetActive(true);
-                break;
-            case 1:
-                break;
         }
     }
 

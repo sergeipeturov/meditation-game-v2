@@ -32,7 +32,7 @@ public class BossGameManager : MonoBehaviour
 
     public virtual void OnOKClick()
     {
-        //TODO: выход в меню выбора уровня
+        GameManager.Instance.GoToLevelChoiseMenu();
     }
 
     public void GoWin()

@@ -393,7 +393,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1241504015}
+      - m_Target: {fileID: 2134231237}
         m_MethodName: SelectLevel
         m_Mode: 3
         m_Arguments:
@@ -690,7 +690,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1241504015}
+      - m_Target: {fileID: 2134231237}
         m_MethodName: SelectLevel
         m_Mode: 3
         m_Arguments:
@@ -819,7 +819,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1241504015}
+      - m_Target: {fileID: 2134231237}
         m_MethodName: SelectLevel
         m_Mode: 3
         m_Arguments:
@@ -1209,7 +1209,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1241504015}
+      - m_Target: {fileID: 2134231237}
         m_MethodName: SelectLevel
         m_Mode: 3
         m_Arguments:
@@ -1646,7 +1646,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1241504015}
+      - m_Target: {fileID: 2134231237}
         m_MethodName: SelectLevel
         m_Mode: 3
         m_Arguments:
@@ -1835,7 +1835,6 @@ GameObject:
   - component: {fileID: 1241504014}
   - component: {fileID: 1241504011}
   - component: {fileID: 1241504012}
-  - component: {fileID: 1241504015}
   - component: {fileID: 1241504013}
   - component: {fileID: 1241504016}
   - component: {fileID: 1241504017}
@@ -1912,30 +1911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Circle: {fileID: 1175928630}
   Background: {fileID: 5745663820017662702}
---- !u!114 &1241504015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241504009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47125be41a64db247b568b29de5a46ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainMenuButtons:
-  - {fileID: 623581463}
-  - {fileID: 1666787178}
-  - {fileID: 755360864}
-  - {fileID: 2059018795}
-  - {fileID: 66645773}
-  MainMenuTexts:
-  - {fileID: 1167285864}
-  - {fileID: 201899363}
-  - {fileID: 1473911256}
-  LevelSelectingPanel: {fileID: 1434711257}
-  LevelDescriptionText: {fileID: 2052550341}
+  ID: 1
 --- !u!114 &1241504016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2125,7 +2101,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1241504015}
+      - m_Target: {fileID: 2134231237}
         m_MethodName: SelectLevel
         m_Mode: 3
         m_Arguments:
@@ -2507,7 +2483,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1241504015}
+      - m_Target: {fileID: 2134231237}
         m_MethodName: SelectLevel
         m_Mode: 3
         m_Arguments:
@@ -2636,7 +2612,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1241504015}
+      - m_Target: {fileID: 2134231237}
         m_MethodName: SelectLevel
         m_Mode: 3
         m_Arguments:
@@ -3429,6 +3405,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104238070}
   m_CullTransparentMesh: 0
+--- !u!1 &2134231236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2134231238}
+  - component: {fileID: 2134231237}
+  m_Layer: 0
+  m_Name: MainMenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2134231237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134231236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47125be41a64db247b568b29de5a46ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainMenuButtons:
+  - {fileID: 623581463}
+  - {fileID: 1666787178}
+  - {fileID: 755360864}
+  - {fileID: 2059018795}
+  - {fileID: 66645773}
+  MainMenuTexts:
+  - {fileID: 1167285864}
+  - {fileID: 201899363}
+  - {fileID: 1473911256}
+  LevelSelectingPanel: {fileID: 1434711257}
+  LevelDescriptionText: {fileID: 2052550341}
+--- !u!4 &2134231238
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134231236}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5745663820017662701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3526,6 +3557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62ebfbffcd760a4787db7cbd288a0a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 1
 --- !u!1001 &9062140477774413971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3533,6 +3565,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7097719933559892401, guid: 56c02db03c3ac574aa58beae563da1ab,
+        type: 3}
+      propertyPath: ID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9062140476528783352, guid: 56c02db03c3ac574aa58beae563da1ab,
         type: 3}
       propertyPath: m_Layer
