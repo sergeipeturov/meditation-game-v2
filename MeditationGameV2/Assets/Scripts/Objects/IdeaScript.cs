@@ -105,13 +105,13 @@ public class IdeaScript : MonoBehaviour
                         MeditationGameUtils.SetTimeOfLife(ref thoughtToAdd);
                         toAdd.Add(thoughtToAdd);
                     }
-                    Debug.Log("Start adding Jealousy thoughts!");
+                    //Debug.Log("Start adding Jealousy thoughts!");
                     foreach (var item in toAdd)
                     {
-                        Debug.Log("Adding " + item.Name);
+                        //Debug.Log("Adding " + item.Name);
                         GameManager.Instance.PlayerManager.AddThought(item);
                     }
-                    Debug.Log("Stop adding Jealousy thoughts!");
+                    //Debug.Log("Stop adding Jealousy thoughts!");
                 }
                 else if (Thought.Name == Names.Positive_8_Serenity)
                 {
@@ -119,7 +119,7 @@ public class IdeaScript : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("In IdeaScript. Must add Thought!");
+                    //Debug.Log("In IdeaScript. Must add Thought!");
                     if (GameManager.Instance.PlayerManager.PosistiveThoughts.Any(x => x.Name == Names.Positive_6_Satisfaction))
                     {
                         var th = Thought.GetRandomPositiveThought();

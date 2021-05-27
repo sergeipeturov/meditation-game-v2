@@ -6,6 +6,11 @@ using TMPro;
 
 public class BossDesiresGameManager : BossGameManager
 {
+    protected override void SetBossType()
+    {
+        BossType = BossType.lifer;
+    }
+
     protected override void SetFailText()
     {
         FailPanel.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "Пока что Вы в плену своих желаний. Продолжайте Вашу медитацию.";

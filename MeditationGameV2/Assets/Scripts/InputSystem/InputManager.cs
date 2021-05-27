@@ -55,11 +55,11 @@ public class InputManager : MonoBehaviour
         {
             if (collider.gameObject.tag.Contains("Man"))
             {
-                Debug.Log("Hit Man");
+                //Debug.Log("Hit Man");
             }
             if (collider.gameObject.tag.Contains("Circle"))
             {
-                Debug.Log("Hit Circle");
+                //Debug.Log("Hit Circle");
                 circleScript = collider.gameObject.GetComponent<CircleScript>();
                 circleScript.StartMoving();
             }

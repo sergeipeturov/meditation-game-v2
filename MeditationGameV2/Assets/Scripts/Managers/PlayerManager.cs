@@ -59,18 +59,18 @@ public class PlayerManager : MonoBehaviour
 
     public void AddThought(Thought thought)
     {
-        Debug.Log("Adding Thought!");
+        //Debug.Log("Adding Thought!");
         if (thought.IsPositive)
         {
             var same = PosistiveThoughts.FirstOrDefault(x => x.Name == thought.Name);
             if (same != null)
             {
-                Debug.Log("Added!");
+                //Debug.Log("Added!");
                 same.CurrentTimeOfLife = 0.0f;
             }
             else
             {
-                Debug.Log("Added!");
+                //Debug.Log("Added!");
                 PosistiveThoughts.Add(thought);
             }
         }
@@ -79,12 +79,12 @@ public class PlayerManager : MonoBehaviour
             var same = NegativeThoughts.FirstOrDefault(x => x.Name == thought.Name);
             if (same != null)
             {
-                Debug.Log("Added!");
+                //Debug.Log("Added!");
                 same.CurrentTimeOfLife = 0.0f;
             }
             else
             {
-                Debug.Log("Added!");
+                //Debug.Log("Added!");
                 NegativeThoughts.Add(thought);
             }
         }

@@ -26,7 +26,7 @@ public class BossAmbitionsInstantiator : MonoBehaviour
                 var newRot = Quaternion.AngleAxis(InstantiateAngles[pointIndex], Vector3.forward) * previousRot;
                 var initedObj = Instantiate(AmbitionPrefab, InstantiatePoints[pointIndex].transform.position, newRot);
 
-                Debug.Log("Ambition Spawned!");
+                //Debug.Log("Ambition Spawned!");
             }
         }
     }

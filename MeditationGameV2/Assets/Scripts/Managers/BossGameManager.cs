@@ -9,8 +9,13 @@ public class BossGameManager : MonoBehaviour
     public GameObject[] LifeUIs;
     public GameObject TimerSlider;
     public GameObject FailPanel;
+    public GameObject BossLifePanel;
+    public GameObject[] BossLifeUIs;
 
-    public BossType BossType { get; set; }
+    private BossType bossType;
+    public BossType BossType { get { return bossType; } set { bossType = value; OnBossTypeChanged(); } }
+
+    public int BossLifes { get; set; } = 5;
 
     private void Awake()
     {
@@ -19,6 +24,7 @@ public class BossGameManager : MonoBehaviour
         foreach (var item in LifeUIs)
             item.SetActive(true);
         lifes = 5;
+        BossLifes = 5;
         SetBossType();
         SetTimerSlider();
         SetBossLifes();
@@ -31,6 +37,22 @@ public class BossGameManager : MonoBehaviour
         {
             bossGameState = value;
             OnBossGameStateChange();
+        }
+    }
+
+    public void BossDamage()
+    {
+        if (GameManager.Instance.StateMachine.GameState == GameState.bossPlaying)
+        {
+            BossLifeUIs[BossLifes - 1].SetActive(false);
+            BossLifes--;
+            Debug.Log("BOSS DAMAGE! BossLifes = " + BossLifes);
+            //TODO: animation of damage
+        }
+
+        if (BossLifes == 0)
+        {
+            Win();
         }
     }
 
@@ -72,13 +94,18 @@ public class BossGameManager : MonoBehaviour
                 TimerSlider.GetComponent<Slider>().value = curTimerSliderTime;
                 if (curTimerSliderTime >= maxTimerSliderTime)
                 {
-                    SetWinText();
-                    GameManager.Instance.StateMachine.GameState = GameState.bossPreWin;
-                    GameManager.Instance.CircleScript.EnableOreol();
-                    GameManager.Instance.CircleScript.FingerReleaseEventNotify += GoWin;
+                    Win();
                 }
             }
         }
+    }
+
+    private void Win()
+    {
+        SetWinText();
+        GameManager.Instance.StateMachine.GameState = GameState.bossPreWin;
+        GameManager.Instance.CircleScript.EnableOreol();
+        GameManager.Instance.CircleScript.FingerReleaseEventNotify += GoWin;
     }
 
     private void BossGameManager_DamageNotify()
@@ -101,14 +128,6 @@ public class BossGameManager : MonoBehaviour
     protected virtual void SetBossType()
     {
         BossType = BossType.timer;
-        if (BossType == BossType.timer)
-        {
-            TimerSlider.SetActive(true);
-        }
-        if (BossType == BossType.lifer)
-        {
-            TimerSlider.SetActive(false);
-        }
     }
 
     protected virtual void SetTimerSlider()
@@ -130,6 +149,20 @@ public class BossGameManager : MonoBehaviour
     protected virtual void SetWinText()
     {
 
+    }
+
+    private void OnBossTypeChanged()
+    {
+        if (BossType == BossType.timer)
+        {
+            TimerSlider.SetActive(true);
+            BossLifePanel.SetActive(false);
+        }
+        if (BossType == BossType.lifer)
+        {
+            TimerSlider.SetActive(false);
+            BossLifePanel.SetActive(true);
+        }
     }
 
     private BossGameState bossGameState;

@@ -26,7 +26,7 @@ public class BossDesiresInstantiator : MonoBehaviour
                 var newRot = Quaternion.AngleAxis(InstantiateAngles[pointIndex], Vector3.forward) * previousRot;
                 var initedObj = Instantiate(DesirePrefab, InstantiatePoints[pointIndex].transform.position, newRot);
 
-                Debug.Log("Desire Spawned!");
+                //Debug.Log("Desire Spawned!");
             }
         }
     }

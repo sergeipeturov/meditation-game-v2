@@ -2,19 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManScript : MonoBehaviour
+public class BossDesiresBlackHole : MonoBehaviour
 {
-    public delegate void Damage();
-    public event Damage DamageNotify;
-
-    public void Move(Vector3 position)
-    {
-        //Debug.Log("Man Moving");
-        if (canMove)
-        {
-            transform.position = new Vector3(position.x, position.y, 0.0f);
-        }
-    }
+    public delegate void BossDamage();
+    public event BossDamage BossDamageNotify;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,11 +16,9 @@ public class ManScript : MonoBehaviour
                 if (collision.gameObject.GetComponent<Enemy>().IsDangerous)
                 {
                     Destroy(collision.gameObject);
-                    DamageNotify?.Invoke();
+                    BossDamageNotify?.Invoke();
                 }
             }
         }
     }
-
-    private bool canMove = true;
 }
