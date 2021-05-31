@@ -9,7 +9,7 @@ public class BossAnxietyInstantiator : MonoBehaviour
 
     public void GoInstantiate()
     {
-        if (ideas.Count == 2)
+        if (ideas.Count >= 2)
         {
             for (int i = 0; i < 3; i++)
             {

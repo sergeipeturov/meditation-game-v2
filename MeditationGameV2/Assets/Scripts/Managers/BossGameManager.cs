@@ -137,7 +137,7 @@ public class BossGameManager : MonoBehaviour
 
     protected virtual void SetTimerSlider()
     {
-        maxTimerSliderTime = 60.0f;
+        maxTimerSliderTime = 30.0f;
         TimerSlider.GetComponent<Slider>().maxValue = maxTimerSliderTime;
     }
 
@@ -174,7 +174,7 @@ public class BossGameManager : MonoBehaviour
     float curAnimDelay = 0.0f;
     float maxAnimDelay = 1.5f;
     int lifes = 5;
-    float maxTimerSliderTime = 60.0f;
+    float maxTimerSliderTime = 30.0f;
     float curTimerSliderTime = 0.0f;
 }
 
