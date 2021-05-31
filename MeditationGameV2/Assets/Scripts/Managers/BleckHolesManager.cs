@@ -9,44 +9,47 @@ public class BleckHolesManager : MonoBehaviour
     private void Start()
     {
         currentTimeBetweenBlackHoles = 0.0f;
-        timeBetweenBlackHoles = Random.Range(GameManager.Instance.LevelsManager.CurrentLevel.MinTimeBetweemBlackHoles, GameManager.Instance.LevelsManager.CurrentLevel.MaxTimeBetweemBlackHoles);
+        timeBetweenBlackHoles = Random.Range(GameManager.Instance.LevelsManager.CurrentLevel.MinTimeBetweenBlackHoles, GameManager.Instance.LevelsManager.CurrentLevel.MaxTimeBetweenBlackHoles);
         isBlackHoleOn = false;
-        TurnOffAllClackHoles();
+        TurnOffAllBlackHoles();
     }
 
     private void Update()
     {
-        if (GameManager.Instance.LevelsManager.CurrentLevel.ChanceOfBlackHole == 0) return;
+        if (GameManager.Instance.StateMachine.GameState == GameState.gameNormalPlaying)
+        {
+            if (GameManager.Instance.LevelsManager.CurrentLevel.ChanceOfBlackHole == 0) return;
 
-        if (!isBlackHoleOn)
-        {
-            currentTimeBetweenBlackHoles += Time.deltaTime;
-            if (currentTimeBetweenBlackHoles >= timeBetweenBlackHoles)
+            if (!isBlackHoleOn)
             {
-                currentTimeBetweenBlackHoles = 0.0f;
-                timeBetweenBlackHoles = Random.Range(GameManager.Instance.LevelsManager.CurrentLevel.MinTimeBetweemBlackHoles, GameManager.Instance.LevelsManager.CurrentLevel.MaxTimeBetweemBlackHoles);
-                timeOfLifeBlackHole = Constants.BlackHoleTimeOfLife;
-                currentTimeTimeOfLifeBlackHole = 0.0f;
-                if (Randomizer.GetResultByChanse(GameManager.Instance.LevelsManager.CurrentLevel.ChanceOfBlackHole))
+                currentTimeBetweenBlackHoles += Time.deltaTime;
+                if (currentTimeBetweenBlackHoles >= timeBetweenBlackHoles)
                 {
-                    int bhIndex = Random.Range(0, BlackHoles.Length);
-                    BlackHoles[bhIndex].SetActive(true);
-                    isBlackHoleOn = true;
+                    currentTimeBetweenBlackHoles = 0.0f;
+                    timeBetweenBlackHoles = Random.Range(GameManager.Instance.LevelsManager.CurrentLevel.MinTimeBetweenBlackHoles, GameManager.Instance.LevelsManager.CurrentLevel.MaxTimeBetweenBlackHoles);
+                    timeOfLifeBlackHole = Constants.BlackHoleTimeOfLife;
+                    currentTimeTimeOfLifeBlackHole = 0.0f;
+                    if (Randomizer.GetResultByChanse(GameManager.Instance.LevelsManager.CurrentLevel.ChanceOfBlackHole))
+                    {
+                        int bhIndex = Random.Range(0, BlackHoles.Length);
+                        BlackHoles[bhIndex].SetActive(true);
+                        isBlackHoleOn = true;
+                    }
                 }
-            }    
-        }
-        else
-        {
-            currentTimeTimeOfLifeBlackHole += Time.deltaTime;
-            if (currentTimeTimeOfLifeBlackHole >= timeOfLifeBlackHole)
+            }
+            else
             {
-                TurnOffAllClackHoles();
-                isBlackHoleOn = false;
+                currentTimeTimeOfLifeBlackHole += Time.deltaTime;
+                if (currentTimeTimeOfLifeBlackHole >= timeOfLifeBlackHole)
+                {
+                    TurnOffAllBlackHoles();
+                    isBlackHoleOn = false;
+                }
             }
         }
     }
 
-    private void TurnOffAllClackHoles()
+    private void TurnOffAllBlackHoles()
     {
         foreach (var item in BlackHoles)
         {

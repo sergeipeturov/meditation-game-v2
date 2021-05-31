@@ -133,7 +133,27 @@ public class NormalGameManager : MonoBehaviour
                 }
                 thoughtChoises.Add(new ThoughtChoise(thought));
                 break;
-            case 3:
+            case 3: //четыре думы - две положительные, две отрицательные
+                for (int i = 0; i < 2; i++)
+                {
+                    thought = new Thought(true);
+                    while (thought.IsMomental || thoughtChoises.Any(x => x.Thought.Name == thought.Name))
+                    {
+                        thought = Thought.GetRandomPositiveThought();
+                        MeditationGameUtils.SetTimeOfLife(ref thought);
+                    }
+                    thoughtChoises.Add(new ThoughtChoise(thought));
+                }
+                for (int i = 0; i < 2; i++)
+                {
+                    thought = new Thought(true);
+                    while (thought.IsMomental || thoughtChoises.Any(x => x.Thought.Name == thought.Name))
+                    {
+                        thought = Thought.GetRandomNegativeThought();
+                        MeditationGameUtils.SetTimeOfLife(ref thought);
+                    }
+                    thoughtChoises.Add(new ThoughtChoise(thought));
+                }
                 break;
             case 4:
                 break;
@@ -172,7 +192,15 @@ public class NormalGameManager : MonoBehaviour
                 thoughtChoises[1].ThoughtChoiseViewName = "TC_2";
                 thoughtChoises[2].ThoughtChoiseViewName = "TC_3";
                 break;
-            case 3:
+            case 3: //четыре думы - две положительные, две отрицательные
+                for (int i = 5; i <= 8; i++)
+                {
+                    GameManager.Instance.UIManager.ChoiseOfThoughtsPanel.transform.Find("ThoughtChoisesPanel").Find($"TC_{i}").gameObject.SetActive(false);
+                }
+                thoughtChoises[0].ThoughtChoiseViewName = "TC_1";
+                thoughtChoises[1].ThoughtChoiseViewName = "TC_2";
+                thoughtChoises[2].ThoughtChoiseViewName = "TC_3";
+                thoughtChoises[3].ThoughtChoiseViewName = "TC_4";
                 break;
             case 4:
                 break;

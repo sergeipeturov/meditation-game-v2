@@ -16,8 +16,11 @@ public class LevelsManager : MonoBehaviour
             MinTimeBetweenIdeas = 0.5f,
             MaxTimeBetweenIdeas = 1.5f,
             ChanceOfBlackHole = 0,
-            MaxTimeBetweemBlackHoles = 0,
-            MinTimeBetweemBlackHoles = 0
+            MaxTimeBetweenBlackHoles = 0,
+            MinTimeBetweenBlackHoles = 0,
+            ChanceOfGreyHole = 0,
+            MaxTimeBetweenGreyHoles = 0,
+            MinTimeBetweenGreyHoles = 0
         },
         new Level()
         {
@@ -28,20 +31,26 @@ public class LevelsManager : MonoBehaviour
             MinTimeBetweenIdeas = 0.3f,
             MaxTimeBetweenIdeas = 1.5f,
             ChanceOfBlackHole = 80,
-            MaxTimeBetweemBlackHoles = 3.0f,
-            MinTimeBetweemBlackHoles = 5.0f
+            MaxTimeBetweenBlackHoles = 3.0f,
+            MinTimeBetweenBlackHoles = 5.0f,
+            ChanceOfGreyHole = 0,
+            MaxTimeBetweenGreyHoles = 0,
+            MinTimeBetweenGreyHoles = 0
         },
         new Level()
         {
             Number = 3,
-            TimeToReach = 30.0f,
+            TimeToReach = 2.0f, //TimeToReach = 30.0f, //test
             ThoughtsTimeOfLife = 15.0f,
             IdeasFallingSpeed = 200.0f,
             MinTimeBetweenIdeas = 0.0f,
             MaxTimeBetweenIdeas = 1.5f,
             ChanceOfBlackHole = 50,
-            MaxTimeBetweemBlackHoles = 3.0f,
-            MinTimeBetweemBlackHoles = 5.0f
+            MaxTimeBetweenBlackHoles = 3.0f,
+            MinTimeBetweenBlackHoles = 5.0f,
+            ChanceOfGreyHole = 80,
+            MaxTimeBetweenGreyHoles = 3.0f,
+            MinTimeBetweenGreyHoles = 5.0f
         },
         new Level()
         {
@@ -52,8 +61,11 @@ public class LevelsManager : MonoBehaviour
             MinTimeBetweenIdeas = 0.0f,
             MaxTimeBetweenIdeas = 1.0f,
             ChanceOfBlackHole = 50,
-            MaxTimeBetweemBlackHoles = 3.0f,
-            MinTimeBetweemBlackHoles = 5.0f
+            MaxTimeBetweenBlackHoles = 3.0f,
+            MinTimeBetweenBlackHoles = 5.0f,
+            ChanceOfGreyHole = 50,
+            MaxTimeBetweenGreyHoles = 3.0f,
+            MinTimeBetweenGreyHoles = 5.0f
         },
         new Level()
         {
@@ -64,8 +76,11 @@ public class LevelsManager : MonoBehaviour
             MinTimeBetweenIdeas = 0.0f,
             MaxTimeBetweenIdeas = 1.0f,
             ChanceOfBlackHole = 50,
-            MaxTimeBetweemBlackHoles = 3.0f,
-            MinTimeBetweemBlackHoles = 5.0f
+            MaxTimeBetweenBlackHoles = 3.0f,
+            MinTimeBetweenBlackHoles = 5.0f,
+            ChanceOfGreyHole = 50,
+            MaxTimeBetweenGreyHoles = 3.0f,
+            MinTimeBetweenGreyHoles = 5.0f
         },
         new Level()
         {
@@ -76,8 +91,11 @@ public class LevelsManager : MonoBehaviour
             MinTimeBetweenIdeas = 0.0f,
             MaxTimeBetweenIdeas = 1.0f,
             ChanceOfBlackHole = 50,
-            MaxTimeBetweemBlackHoles = 3.0f,
-            MinTimeBetweemBlackHoles = 5.0f
+            MaxTimeBetweenBlackHoles = 3.0f,
+            MinTimeBetweenBlackHoles = 5.0f,
+            ChanceOfGreyHole = 50,
+            MaxTimeBetweenGreyHoles = 3.0f,
+            MinTimeBetweenGreyHoles = 5.0f
         },
         new Level()
         {
@@ -88,8 +106,11 @@ public class LevelsManager : MonoBehaviour
             MinTimeBetweenIdeas = 0.0f,
             MaxTimeBetweenIdeas = 1.0f,
             ChanceOfBlackHole = 50,
-            MaxTimeBetweemBlackHoles = 3.0f,
-            MinTimeBetweemBlackHoles = 5.0f
+            MaxTimeBetweenBlackHoles = 3.0f,
+            MinTimeBetweenBlackHoles = 5.0f,
+            ChanceOfGreyHole = 50,
+            MaxTimeBetweenGreyHoles = 3.0f,
+            MinTimeBetweenGreyHoles = 5.0f
         },
         new Level()
         {
@@ -100,8 +121,11 @@ public class LevelsManager : MonoBehaviour
             MinTimeBetweenIdeas = 0.0f,
             MaxTimeBetweenIdeas = 1.0f,
             ChanceOfBlackHole = 50,
-            MaxTimeBetweemBlackHoles = 3.0f,
-            MinTimeBetweemBlackHoles = 5.0f
+            MaxTimeBetweenBlackHoles = 3.0f,
+            MinTimeBetweenBlackHoles = 5.0f,
+            ChanceOfGreyHole = 50,
+            MaxTimeBetweenGreyHoles = 3.0f,
+            MinTimeBetweenGreyHoles = 5.0f
         }
     };
 

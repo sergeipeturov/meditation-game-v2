@@ -10,6 +10,7 @@ public class BlackHoleScript : MonoBehaviour
         {
             if (collision.gameObject.tag.Contains("Idea"))
             {
+                GameManager.Instance.Ideas.Remove(collision.gameObject);
                 Destroy(collision.gameObject);
             }
         }

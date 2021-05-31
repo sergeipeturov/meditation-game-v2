@@ -139,6 +139,7 @@ public class IdeaScript : MonoBehaviour
                     }
                 }
 
+                GameManager.Instance.Ideas.Remove(gameObject);
                 Destroy(this.gameObject);
             }
         }

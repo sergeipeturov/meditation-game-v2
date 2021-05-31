@@ -19,10 +19,16 @@ public class Level
 
     public float MinTimeBetweenIdeas { get; set; } //чем больше, тем проще
 
-    public float MaxTimeBetweemBlackHoles { get; set; } //чем больше, тем сложнее
+    public float MaxTimeBetweenBlackHoles { get; set; } //чем больше, тем сложнее
 
-    public float MinTimeBetweemBlackHoles { get; set; } //чем больше, тем сложнее
+    public float MinTimeBetweenBlackHoles { get; set; } //чем больше, тем сложнее
 
     public int ChanceOfBlackHole { get; set; } //чем больше, тем проще
+
+    public float MaxTimeBetweenGreyHoles { get; set; }
+
+    public float MinTimeBetweenGreyHoles { get; set; }
+
+    public int ChanceOfGreyHole { get; set; }
 
 }

@@ -67,6 +67,11 @@ public class BossGameManager : MonoBehaviour
         GameManager.Instance.CircleScript.FingerReleaseEventNotify -= GoWin;
     }
 
+    public void DamagePlayer()
+    {
+        BossGameManager_DamageNotify();
+    }
+
     private void OnBossGameStateChange()
     {
         if (BossGameState == BossGameState.intro)
