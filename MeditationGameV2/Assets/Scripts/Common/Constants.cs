@@ -15,6 +15,7 @@ public static class Constants
     public const int ChanceOfIrritationEffect = 100;
     public const int ChanceOfSorrowEffect = 2;
     public const int ChanceOfCalmnessEffect = 70;
+    public const float BlackHoleTimeOfLife = 8.0f;
 }
 
 public static class Names

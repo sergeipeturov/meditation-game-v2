@@ -14,7 +14,10 @@ public class LevelsManager : MonoBehaviour
             ThoughtsTimeOfLife = 10.0f,
             IdeasFallingSpeed = 1.0f,
             MinTimeBetweenIdeas = 0.5f,
-            MaxTimeBetweenIdeas = 1.5f
+            MaxTimeBetweenIdeas = 1.5f,
+            ChanceOfBlackHole = 0,
+            MaxTimeBetweemBlackHoles = 0,
+            MinTimeBetweemBlackHoles = 0
         },
         new Level()
         {
@@ -23,7 +26,10 @@ public class LevelsManager : MonoBehaviour
             ThoughtsTimeOfLife = 10.0f,
             IdeasFallingSpeed = 100.0f,
             MinTimeBetweenIdeas = 0.3f,
-            MaxTimeBetweenIdeas = 1.5f
+            MaxTimeBetweenIdeas = 1.5f,
+            ChanceOfBlackHole = 80,
+            MaxTimeBetweemBlackHoles = 3.0f,
+            MinTimeBetweemBlackHoles = 5.0f
         },
         new Level()
         {
@@ -32,7 +38,10 @@ public class LevelsManager : MonoBehaviour
             ThoughtsTimeOfLife = 15.0f,
             IdeasFallingSpeed = 200.0f,
             MinTimeBetweenIdeas = 0.0f,
-            MaxTimeBetweenIdeas = 1.5f
+            MaxTimeBetweenIdeas = 1.5f,
+            ChanceOfBlackHole = 50,
+            MaxTimeBetweemBlackHoles = 3.0f,
+            MinTimeBetweemBlackHoles = 5.0f
         },
         new Level()
         {
@@ -41,7 +50,10 @@ public class LevelsManager : MonoBehaviour
             ThoughtsTimeOfLife = 15.0f,
             IdeasFallingSpeed = 300.0f,
             MinTimeBetweenIdeas = 0.0f,
-            MaxTimeBetweenIdeas = 1.0f
+            MaxTimeBetweenIdeas = 1.0f,
+            ChanceOfBlackHole = 50,
+            MaxTimeBetweemBlackHoles = 3.0f,
+            MinTimeBetweemBlackHoles = 5.0f
         },
         new Level()
         {
@@ -50,7 +62,10 @@ public class LevelsManager : MonoBehaviour
             ThoughtsTimeOfLife = 20.0f,
             IdeasFallingSpeed = 500.0f,
             MinTimeBetweenIdeas = 0.0f,
-            MaxTimeBetweenIdeas = 1.0f
+            MaxTimeBetweenIdeas = 1.0f,
+            ChanceOfBlackHole = 50,
+            MaxTimeBetweemBlackHoles = 3.0f,
+            MinTimeBetweemBlackHoles = 5.0f
         },
         new Level()
         {
@@ -59,7 +74,10 @@ public class LevelsManager : MonoBehaviour
             ThoughtsTimeOfLife = 20.0f,
             IdeasFallingSpeed = 600.0f,
             MinTimeBetweenIdeas = 0.0f,
-            MaxTimeBetweenIdeas = 1.0f
+            MaxTimeBetweenIdeas = 1.0f,
+            ChanceOfBlackHole = 50,
+            MaxTimeBetweemBlackHoles = 3.0f,
+            MinTimeBetweemBlackHoles = 5.0f
         },
         new Level()
         {
@@ -68,7 +86,10 @@ public class LevelsManager : MonoBehaviour
             ThoughtsTimeOfLife = 25.0f,
             IdeasFallingSpeed = 800.0f,
             MinTimeBetweenIdeas = 0.0f,
-            MaxTimeBetweenIdeas = 1.0f
+            MaxTimeBetweenIdeas = 1.0f,
+            ChanceOfBlackHole = 50,
+            MaxTimeBetweemBlackHoles = 3.0f,
+            MinTimeBetweemBlackHoles = 5.0f
         },
         new Level()
         {
@@ -77,7 +98,10 @@ public class LevelsManager : MonoBehaviour
             ThoughtsTimeOfLife = 40.0f,
             IdeasFallingSpeed = 900.0f,
             MinTimeBetweenIdeas = 0.0f,
-            MaxTimeBetweenIdeas = 1.0f
+            MaxTimeBetweenIdeas = 1.0f,
+            ChanceOfBlackHole = 50,
+            MaxTimeBetweemBlackHoles = 3.0f,
+            MinTimeBetweemBlackHoles = 5.0f
         }
     };
 
