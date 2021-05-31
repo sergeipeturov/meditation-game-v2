@@ -118,7 +118,7 @@ public class NormalGameManager : MonoBehaviour
                 for (int i = 0; i < 2; i++)
                 {
                     thought = new Thought(true);
-                    while (thought.IsMomental)
+                    while (thought.IsMomental || thoughtChoises.Any(x => x.Thought.Name == thought.Name))
                     {
                         thought = Thought.GetRandomPositiveThought();
                         MeditationGameUtils.SetTimeOfLife(ref thought);
